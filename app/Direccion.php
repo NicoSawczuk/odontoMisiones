@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Direccion extends Model
 {
     use SoftDeletes;
+    protected $guarded = [];
+    public $table = "direcciones";
 
     //Relaciones
     public function cliente(){

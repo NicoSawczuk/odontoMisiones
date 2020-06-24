@@ -22,12 +22,12 @@ class CreateClientesTable extends Migration
             $table->date('fecha_nacimiento');
             $table->string('dni');
             $table->string('cuil');
-            $table->integer('numero_cliente');
+            $table->string('numero_cliente')->nullable();
             $table->string('telefono');
             $table->string('email');
             $table->boolean('disponibilidad_crediticia');
             $table->boolean('estado_crediticio');
-            $table->text('notas_particulares');
+            $table->text('notas_particulares')->nullable();
 
             $table->unsignedBigInteger('direccion_id');
             $table->foreign('direccion_id')->references('id')->on('direcciones');

@@ -38,3 +38,10 @@ Route::put('/direcciones/{direccion}', 'DireccionController@update')->name('dire
 Route::delete('direcciones/{direccion}', 'DireccionController@destroy')->name('direcciones.destroy'); //eliminar una direccion
 
 
+//carga de provincias con ajax
+Route::get('paises/{pais}', 'DireccionController@obtenerProvincias')->name('paises.obtenerProvincias');
+
+//carga de localidades con ajax
+Route::get('provincias/{provincia}', 'DireccionController@obtenerLocalidades')->name('provincias.obtenerLocalidades');
+
+

@@ -19,6 +19,8 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     {{-- DataTables --}}
     <link rel="stylesheet" href="{{ asset('assets/extensiones/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    {{-- Toastr --}}
+    <link href="{{asset('assets/extensiones/toastr/toastr.min.css')}}" rel="stylesheet"/>
 
 </head>
 
@@ -32,7 +34,7 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Main content -->
-            <section class="content">
+            <section class="content mt-4">
                 {{-- Esta etiqueta nos servira porque en la otra pagina vamos a hacer refencia a la misma y lo que agreguemos se va a agregar dentro de esta seecion/etiquetas --}}
                 @yield('content')
             </section>
@@ -59,6 +61,20 @@
     <script src="{{asset('assets/extensiones/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
     {{-- Scrip para cargar el datatable --}}
     <script src="{{asset('assets/js/incluirDatatable.js')}}"></script>
+    {{-- Toastr --}}
+    <script src="{{asset('assets/extensiones/toastr/toastr.min.js')}}"></script>
+    {{-- Si el mensaje que enviamos es success --}}
+    @if (session('success'))
+    <script>
+        toastr.success(' {{ session('success') }} ', 'Correcto')
+    </script>
+    @endif
+    {{-- Si el mensaje que enviamos es error --}}
+    @if (session('error'))
+    <script>
+        toastr.error(' {{ session('error') }} ', 'Error')
+    </script>
+    @endif
 
     @stack('scripts')
     {{-- stack es para que cualquiera otra pagina tenga los scripts --}}
