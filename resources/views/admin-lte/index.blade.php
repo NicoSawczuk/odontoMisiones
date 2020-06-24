@@ -22,9 +22,9 @@
 <body class="hold-transition sidebar-mini layout-fixed">
     <!-- Site wrapper -->
     <div class="wrapper">
-        @include('admin-lte/navbar')
+        @include('admin-lte.navbar')
 
-        @include('admin-lte/sidebar')
+        @include('admin-lte.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
