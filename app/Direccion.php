@@ -2,6 +2,9 @@
 
 namespace App;
 
+use Cardumen\ArgentinaProvinciasLocalidades\Models\Localidad;
+use Cardumen\ArgentinaProvinciasLocalidades\Models\Pais;
+use Cardumen\ArgentinaProvinciasLocalidades\Models\Provincia;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -13,5 +16,20 @@ class Direccion extends Model
     public function cliente(){
         return $this->belongsTo(Cliente::class);
     }
+
+    public function pais(){
+        return $this->belongsTo(Pais::class);
+    }
+
+    public function provincia(){
+        return $this->belongsTo(Provincia::class);
+    }
+
+    public function localidad(){
+        return $this->belongsTo(Localidad::class);
+    }
+
+
+
 
 }
