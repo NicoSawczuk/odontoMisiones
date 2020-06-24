@@ -14,7 +14,11 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        //debemos obtener todos los clientes de la BD
+        $clientes = Cliente::all();
+
+        //aca debemos retornar la vista del index de clientes y pasarle los clientes
+        return view('clientes.index', compact('clientes'));
     }
 
     /**

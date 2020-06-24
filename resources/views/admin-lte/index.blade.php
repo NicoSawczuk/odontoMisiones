@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="{{asset('assets/admin-lte/dist/css/adminlte.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    {{-- DataTables --}}
+    <link rel="stylesheet" href="{{ asset('assets/extensiones/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -40,7 +43,7 @@
     </div>
     <!-- ./wrapper -->
 
-    
+
     <!-- jQuery -->
     <script src="{{asset('assets/admin-lte/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap 4 -->
@@ -51,6 +54,11 @@
     <script src="{{asset('assets/admin-lte/dist/js/adminlte.min.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{asset('assets/admin-lte/dist/js/demo.js')}}"></script>
+    {{-- Datatable --}}
+    <script src="{{asset('assets/extensiones/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/extensiones/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    {{-- Scrip para cargar el datatable --}}
+    <script src="{{asset('assets/js/incluirDatatable.js')}}"></script>
 
     @stack('scripts')
     {{-- stack es para que cualquiera otra pagina tenga los scripts --}}
