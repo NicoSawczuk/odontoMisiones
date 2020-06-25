@@ -14,7 +14,11 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        //
+        //debemos obtener todos los provedores de la BD
+        $proveedores = Proveedor::all();
+
+        //aca debemos retornar la vista del index de proveedores y pasarle los proveedores
+        return view('proveedores.index', compact('proveedores'));
     }
 
     /**
