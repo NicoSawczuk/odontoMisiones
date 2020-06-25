@@ -11,7 +11,7 @@ class Cliente extends Model
 
     //Relaciones
     public function direccion(){
-        return $this->hasOne(Direccion::class);
+        return $this->belongsTo(Direccion::class);
     }
 
 

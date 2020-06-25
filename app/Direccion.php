@@ -16,7 +16,7 @@ class Direccion extends Model
 
     //Relaciones
     public function cliente(){
-        return $this->belongsTo(Cliente::class);
+        return $this->hasOne(Cliente::class);
     }
 
     public function pais(){
