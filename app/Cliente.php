@@ -14,5 +14,10 @@ class Cliente extends Model
         return $this->belongsTo(Direccion::class);
     }
 
+    //Relaciones
+    public function equipos(){
+        return $this->hasMany(Equipo::class);
+    }
+
 
 }

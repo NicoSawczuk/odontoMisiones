@@ -9,4 +9,10 @@ class Equipo extends Model
     use SoftDeletes;
     protected $guarded = [];
     public $table = "equipos";
+
+
+    //Relaciones
+    public function cliente(){
+        return $this->belongsTo(Cliente::class);
+    }
 }
