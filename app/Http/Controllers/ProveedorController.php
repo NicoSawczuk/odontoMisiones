@@ -28,7 +28,7 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        //
+        return view('proveedores.create');
     }
 
     /**
@@ -39,7 +39,28 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'empresa' => 'required',
+            'direccion_postal' => 'required',
+            'telefono' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'email' => 'required|email|unique:proveedores',
+            'nombre_persona_contacto' => 'required',
+            'apellido_persona_contacto' => 'required',
+        ]) ;
+
+        $proveedor = new Proveedor();
+        $proveedor->empresa = $request->empresa ;
+        $proveedor->direccion_postal = $request->direccion_postal ;
+        $proveedor->telefono = $request->telefono ;
+        $proveedor->email = $request->email ;
+        $proveedor->nombre_persona_contacto = $request->nombre_persona_contacto ;
+        $proveedor->apellido_persona_contacto = $request->apellido_persona_contacto ;
+        $proveedor->notas_generales = $request->notas_generales ;
+        
+        $proveedor->save();
+        //$cliente->numero_cliente = $numero_cliente ;
+        $proveedor->save();
+        return redirect(route('proveedores.index'))->with('success','Proveedor guardado con exito!');
     }
 
     /**
