@@ -11,6 +11,9 @@
 |
 */
 
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -53,4 +56,22 @@ Route::get('/proveedores/{proveedor}/edit', 'ProveedorController@edit')->name('p
 Route::put('/proveedores/{proveedor}', 'ProveedorController@update')->name('proveedores.update'); //guardar lo que modificamos en el form de edicion
 Route::delete('proveedores/{proveedor}', 'ProveedorController@destroy')->name('proveedores.destroy'); //eliminar una proveedor
 
+
+//Equipos
+Route::get('/equipos', 'EquipoController@index')->name('equipos.index'); //para mostrar todos los equipos
+Route::get('/equipos/create', 'EquipoController@create')->name('equipos.create'); //renderizar la vista de creacion
+Route::post('/equipos', 'EquipoController@store')->name('equipos.store'); //guardar el form (crear un equipo)
+Route::get('/equipos/{equipo}', 'EquipoController@show')->name('equipos.show'); //ver datos de un solo equipo
+Route::get('/equipos/{equipo}/edit', 'EquipoController@edit')->name('equipos.edit'); //renderizar el form para editar un equipo
+Route::put('/equipos/{equipo}', 'EquipoController@update')->name('equipos.update'); //guardar lo que modificamos en el form de edicion
+Route::delete('equipos/{equipo}', 'EquipoController@destroy')->name('equipos.destroy'); //eliminar un equipo
+
+//Equipos
+Route::get('/partes', 'ParteController@index')->name('partes.index'); //para mostrar todos los partes
+Route::get('/partes/create', 'ParteController@create')->name('partes.create'); //renderizar la vista de creacion
+Route::post('/partes', 'ParteController@store')->name('partes.store'); //guardar el form (crear un parte)
+Route::get('/partes/{parte}', 'ParteController@show')->name('partes.show'); //ver datos de un solo parte
+Route::get('/partes/{parte}/edit', 'ParteController@edit')->name('partes.edit'); //renderizar el form para editar un parte
+Route::put('/partes/{parte}', 'ParteController@update')->name('partes.update'); //guardar lo que modificamos en el form de edicion
+Route::delete('partes/{parte}', 'ParteController@destroy')->name('partes.destroy'); //eliminar un parte
 
