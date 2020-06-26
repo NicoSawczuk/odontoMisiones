@@ -64,3 +64,23 @@
 
 
 @endsection
+
+@push('scripts')
+
+{{-- Script para eliminar --}}
+<script>
+    $(document).on('click', '.delete', function(){
+    id = $(this).attr('val-palabra');
+
+    url2="{{route('clientes.destroy',":id")}}";
+    url2=url2.replace(':id',id);
+
+    $('#formDelete').attr('action',url2);
+    $('#confirmDelete').modal('show');
+    });
+
+    $('#formDelete').on('submit',function(){
+    $('#ok_delete').text('Eliminando...')
+    });
+</script>
+@endpush
