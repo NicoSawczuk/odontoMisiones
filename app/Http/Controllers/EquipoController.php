@@ -42,7 +42,7 @@ class EquipoController extends Controller
             'marca' => 'required',
             'modelo' => 'required',
             'fecha_garantia' => 'required|date',
-            'numero_serie' => 'required',
+            'numero_serie' => 'required|unique:equipos',
             'cliente' => 'required',
             'estado' => 'required'
         ]) ;
@@ -81,7 +81,8 @@ class EquipoController extends Controller
      */
     public function edit(Equipo $equipo)
     {
-        //
+        $clientes = Cliente::all();
+        return view('equipos.edit', compact('clientes', 'equipo'));
     }
 
     /**
@@ -93,7 +94,19 @@ class EquipoController extends Controller
      */
     public function update(Request $request, Equipo $equipo)
     {
-        //
+        $data = request()->validate([
+            'marca' => 'required',
+            'modelo' => 'required',
+            'fecha_garantia' => 'required|date',
+            'numero_serie' => 'required|unique:equipos,numero_serie,'.$equipo->id,
+            'cliente_id' => 'required',
+            'estado' => 'required'
+        ]) ;
+        
+        $equipo->update($data);
+        $equipo->save();
+
+        return redirect(route('equipos.index'))->with('success', 'Equipo modificado con éxito!');
     }
 
     /**
