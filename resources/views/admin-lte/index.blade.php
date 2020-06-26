@@ -20,7 +20,12 @@
     {{-- DataTables --}}
     <link rel="stylesheet" href="{{ asset('assets/extensiones/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     {{-- Toastr --}}
-    <link href="{{asset('assets/extensiones/toastr/toastr.min.css')}}" rel="stylesheet"/>
+    <link href="{{asset('assets/extensiones/toastr/toastr.min.css')}}" rel="stylesheet" />
+
+    {{-- Select con buscador --}}
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{asset('assets/admin-lte/plugins/select2/css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 
 </head>
 
