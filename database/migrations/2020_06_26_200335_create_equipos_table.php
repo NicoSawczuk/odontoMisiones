@@ -19,7 +19,7 @@ class CreateEquiposTable extends Migration
             $table->string('marca');
             $table->string('modelo');
             $table->date('fecha_garantia')->nullable();
-            $table->string('numeros_serie');
+            $table->string('numero_serie')->nullable();
             $table->string('estado');
             $table->text('notas_generales')->nullable();
 
