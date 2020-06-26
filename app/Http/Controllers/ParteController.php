@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Parte;
 use Illuminate\Http\Request;
 
 class ParteController extends Controller
@@ -13,7 +14,8 @@ class ParteController extends Controller
      */
     public function index()
     {
-        //
+        $partes = Parte::all();
+        return view('partes.index', compact('partes'));
     }
 
     /**
@@ -23,7 +25,7 @@ class ParteController extends Controller
      */
     public function create()
     {
-        //
+        return view('partes.create');
     }
 
     /**
@@ -34,7 +36,31 @@ class ParteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'marca' => 'required',
+            'modelo' => 'required',
+            'fecha_garantia' => 'required|date',
+            'numeros_serie' => 'required|unique:partes',
+            'estado' => 'required',
+            'precio_sugerido' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+            'disponibilidad' => 'required',
+            'comprobante_asociado' => 'required',
+        ]);
+
+        $parte = new Parte();
+        $parte->marca = $request->marca ;
+        $parte->modelo = $request->modelo ;
+        $parte->fecha_garantia = $request->fecha_garantia ;
+        $parte->numeros_serie = $request->numeros_serie ;
+        $parte->estado = $request->estado ;
+        $parte->precio_sugerido = $request->precio_sugerido ;
+        $parte->disponibilidad = $request->disponibilidad ;
+        $parte->comprobante_asociado = $request->comprobante_asociado ;
+        $parte->notas_generales = $request->notas_generales ;
+        $parte->save();
+
+        return redirect(route('partes.index'))->with('success','Parte guardada con exito!');
+
     }
 
     /**
@@ -54,9 +80,9 @@ class ParteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Parte $parte)
     {
-        //
+        return view('partes.edit', compact('parte'));
     }
 
     /**
@@ -66,9 +92,30 @@ class ParteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Parte $parte)
     {
-        //
+        $data = request()->validate([
+            'marca' => 'required',
+            'modelo' => 'required',
+            'fecha_garantia' => 'required|date',
+            'numeros_serie' => 'required|unique:partes,id,'.$parte->id,
+            'estado' => 'required',
+            'precio_sugerido' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+            'disponibilidad' => 'required',
+            'comprobante_asociado' => 'required',
+        ]);
+        $parte->marca = $request->marca ;
+        $parte->modelo = $request->modelo ;
+        $parte->fecha_garantia = $request->fecha_garantia ;
+        $parte->numeros_serie = $request->numeros_serie ;
+        $parte->estado = $request->estado ;
+        $parte->precio_sugerido = $request->precio_sugerido ;
+        $parte->disponibilidad = $request->disponibilidad ;
+        $parte->comprobante_asociado = $request->comprobante_asociado ;
+        $parte->notas_generales = $request->notas_generales ;
+        $parte->update();
+        return redirect(route('partes.index'))->with('success','Parte actualizada con exito!');
+
     }
 
     /**
@@ -77,8 +124,8 @@ class ParteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Parte $parte)
     {
-        //
+
     }
 }
