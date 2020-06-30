@@ -115,8 +115,9 @@ class EquipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Equipo $equipo)
     {
-        //
+        $equipo->delete();
+        return redirect(route('equipos.index'))->with('success', 'Equipo '.$equipo->marca.' '.$equipo->modelo.' eliminado con éxito!');
     }
 }
