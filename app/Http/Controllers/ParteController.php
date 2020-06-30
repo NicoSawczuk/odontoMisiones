@@ -126,6 +126,15 @@ class ParteController extends Controller
      */
     public function destroy(Parte $parte)
     {
-
+        try {
+            if($parte->disponibilidad == 0){
+                $parte->delete();
+                return redirect(route('partes.index'))->with('success','Parte eliminada con exito!');
+            }else{
+                return redirect(route('partes.index'))->with('error','No es posible eliminar la parte porque tiene un estado disponible!');
+            }
+        } catch (Throwable $th) {
+            return redirect(route('partes.index'))->with('error','Error al eliminar la parte!');
+        }
     }
 }
