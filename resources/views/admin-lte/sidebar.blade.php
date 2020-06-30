@@ -3,9 +3,9 @@
   <!-- Brand Logo -->
   <a href="#" class="brand-link">
 
-    <span class="brand-text font-weight-light">
+    <span class="brand-text font-weight-light" style="color: #3c8dbc">
       <img src="{{asset("assets/icons/OdotnoMisionesLogo.png")}}" class="brand-image img-circle" style="opacity: 1">
-      Odonto Misiones
+      <b>Odonto Misiones</b>
     </span>
   </a>
 
