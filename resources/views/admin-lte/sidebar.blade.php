@@ -1,8 +1,12 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-light-navy elevation-4">
   <!-- Brand Logo -->
-  <a href="../../index3.html" class="brand-link">
-    <span class="brand-text font-weight-light">odontoMisiones</span>
+  <a href="#" class="brand-link">
+
+    <span class="brand-text font-weight-light">
+      <img src="{{asset("assets/icons/OdotnoMisionesLogo.png")}}" class="brand-image img-circle" style="opacity: 1">
+      Odonto Misiones
+    </span>
   </a>
 
   <!-- Sidebar -->
@@ -59,7 +63,8 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item has-treeview {{ (request()->routeIs('partes.*') ||request()->routeIs('proveedores.*')) ? 'menu-open active' : '' }}">
+        <li
+          class="nav-item has-treeview {{ (request()->routeIs('partes.*') ||request()->routeIs('proveedores.*')) ? 'menu-open active' : '' }}">
           <a href="#" class="nav-link"
             style="{{ (request()->routeIs('partes.*') ||request()->routeIs('proveedores.*')) ? 'background-color: #3c8dbc; color: white;' : '' }}">
             <i class="nav-item fas fa-people-carry"></i>
