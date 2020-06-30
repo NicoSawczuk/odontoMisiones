@@ -102,9 +102,9 @@
                         <label for="disponibilidad" class="">Disponible</label>
                         <select name="disponibilidad" id="disponibilidad" class="form-control" required>
                             <option value="" selected disabled>--Seleccione--</option>
-                            <option value="1" @if(("1" == old('disponibilidad')) || (1 == $parte->estado)) selected
+                            <option value="1" @if(("1" == old('disponibilidad')) || (1 == $parte->disponibilidad)) selected
                                 @endif>SI</option>
-                            <option value="0"  @if(("0" == old('disponibilidad')) || (0 == $parte->estado) ) selected
+                            <option value="0"  @if(("0" == old('disponibilidad')) || (0 == $parte->disponibilidad) ) selected
                             @endif>NO</option>
                         </select>
                         @error('disponibilidad')
