@@ -283,7 +283,7 @@
   <table id="TAB76" populated="true" UUID="27d01636-d5af-47b9-856f-70c511bda12e" name="incidencias" objectType="TABLE" physicalName="incidencias" >
    <remarks></remarks>
    <folder id="FOLTAB761" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL77" populated="true" UUID="43e65348-b041-4a4e-8445-8991866f6740" autoIncrement="false" autoIncrementSequenceName="incidencias_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="4" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL77" populated="true" UUID="43e65348-b041-4a4e-8445-8991866f6740" autoIncrement="false" autoIncrementSequenceName="incidencias_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="5" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL78" populated="true" UUID="66656af0-5c3b-40b2-a46d-291ab945f970" autoIncrement="false" autoIncrementSequenceName="incidencias_fecha_comienzo_incidencia_seq" defaultValue="" name="fecha_comienzo_incidencia" nullable="0" physicalName="fecha_comienzo_incidencia" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
@@ -338,39 +338,86 @@
     </index>
    </folder>
   </table>
+  <table id="TAB92" populated="true" UUID="32cd09d2-e519-4b49-a9a9-a4e8a4280606" name="tecnicos" objectType="TABLE" physicalName="tecnicos" >
+   <remarks></remarks>
+   <folder id="FOLTAB921" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL93" populated="true" UUID="47410a1a-34e3-4d72-860e-b14544d279bb" autoIncrement="false" autoIncrementSequenceName="tecnicos_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL94" populated="true" UUID="4b74f2e8-7e91-47e6-b785-d0e643ac855a" autoIncrement="false" autoIncrementSequenceName="tecnicos_nombres_seq" defaultValue="" name="nombres" nullable="0" physicalName="nombres" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL95" populated="true" UUID="294d630c-673a-45f0-b674-5c76a4c31713" autoIncrement="false" autoIncrementSequenceName="tecnicos_apellidos_seq" defaultValue="" name="apellidos" nullable="0" physicalName="apellidos" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL96" populated="true" UUID="6211bb1d-8e0e-4c9d-bc8e-f1a1ecfedb00" autoIncrement="false" autoIncrementSequenceName="tecnicos_dni_seq" defaultValue="" name="dni" nullable="0" physicalName="dni" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL97" populated="true" UUID="81a7040e-9cc8-4f29-abbf-8d737408ea49" autoIncrement="false" autoIncrementSequenceName="tecnicos_cuil_seq" defaultValue="" name="cuil" nullable="0" physicalName="cuil" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL98" populated="true" UUID="31c21cd0-b557-479a-854e-20c887ed42eb" autoIncrement="false" autoIncrementSequenceName="tecnicos_sexo_seq" defaultValue="" name="sexo" nullable="0" physicalName="sexo" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL99" populated="true" UUID="65ec1fe3-7678-4879-bec9-71da9dbe8624" autoIncrement="false" autoIncrementSequenceName="tecnicos_fecha_nacimiento_seq" defaultValue="" name="fecha_nacimiento" nullable="0" physicalName="fecha_nacimiento" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL100" populated="true" UUID="c2b98e8a-859f-4837-b14d-98c68b57211b" autoIncrement="false" autoIncrementSequenceName="tecnicos_telefono_seq" defaultValue="" name="telefono" nullable="0" physicalName="telefono" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL101" populated="true" UUID="7323860d-a552-4dec-a270-4ce0c99f969c" autoIncrement="false" autoIncrementSequenceName="tecnicos_email_seq" defaultValue="" name="email" nullable="0" physicalName="email" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL102" populated="true" UUID="1555801e-8c7f-4df4-8557-f047003de835" autoIncrement="false" autoIncrementSequenceName="tecnicos_notas_particulares_seq" defaultValue="" name="notas_particulares" nullable="0" physicalName="notas_particulares" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB923" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB922" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB924" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX103" populated="true" UUID="2f220d22-451d-4506-ac56-f8f4e291c4b9" clustered="false" name="pk_tecnicos" physicalName="pk_tecnicos" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC104" populated="true" UUID="d5548b34-ec16-40f2-b967-3814ac2307c5" ascendingOrDescending="UNSPECIFIED" column-ref="COL93" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
   <relationships>
-   <relationship id="REL92" populated="true" UUID="81e19f57-b337-4302-a1dd-baeddf472bf2" deferrability="7" deleteRule="3" fk-table-ref="TAB29" fkCardinality="7" identifying="false" name="paises_direcciones_fk" physicalName="paises_direcciones_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP93" populated="true" UUID="427d3740-7c0b-408a-a3e3-e72a3368bd4f" fk-column-ref="COL30" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+   <relationship id="REL105" populated="true" UUID="81e19f57-b337-4302-a1dd-baeddf472bf2" deferrability="7" deleteRule="3" fk-table-ref="TAB29" fkCardinality="7" identifying="false" name="paises_direcciones_fk" physicalName="paises_direcciones_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP106" populated="true" UUID="427d3740-7c0b-408a-a3e3-e72a3368bd4f" fk-column-ref="COL30" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
    </relationship>
-   <relationship id="REL94" populated="true" UUID="1083f571-3ef9-48bc-beb8-37211e66c21a" deferrability="7" deleteRule="3" fk-table-ref="TAB29" fkCardinality="7" identifying="false" name="provincias_direcciones_fk" physicalName="provincias_direcciones_fk" pk-table-ref="TAB5" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP95" populated="true" UUID="b51f511b-bdc8-4984-bbb8-c823647e9ea6" fk-column-ref="COL30" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL6" />
+   <relationship id="REL107" populated="true" UUID="1083f571-3ef9-48bc-beb8-37211e66c21a" deferrability="7" deleteRule="3" fk-table-ref="TAB29" fkCardinality="7" identifying="false" name="provincias_direcciones_fk" physicalName="provincias_direcciones_fk" pk-table-ref="TAB5" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP108" populated="true" UUID="b51f511b-bdc8-4984-bbb8-c823647e9ea6" fk-column-ref="COL30" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL6" />
    </relationship>
-   <relationship id="REL96" populated="true" UUID="cd37b6ea-d09b-48f6-84f9-23e4f4f05fb8" deferrability="7" deleteRule="3" fk-table-ref="TAB29" fkCardinality="7" identifying="false" name="localidades_direcciones_fk" physicalName="localidades_direcciones_fk" pk-table-ref="TAB9" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP97" populated="true" UUID="91929017-e283-46e7-bc71-89b6ba209a8a" fk-column-ref="COL30" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL10" />
+   <relationship id="REL109" populated="true" UUID="cd37b6ea-d09b-48f6-84f9-23e4f4f05fb8" deferrability="7" deleteRule="3" fk-table-ref="TAB29" fkCardinality="7" identifying="false" name="localidades_direcciones_fk" physicalName="localidades_direcciones_fk" pk-table-ref="TAB9" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP110" populated="true" UUID="91929017-e283-46e7-bc71-89b6ba209a8a" fk-column-ref="COL30" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL10" />
    </relationship>
-   <relationship id="REL98" populated="true" UUID="6e241ea6-db65-4429-a47c-60fe9ab2830b" deferrability="7" deleteRule="3" fk-table-ref="TAB29" fkCardinality="3" identifying="false" name="clientes_direcciones_fk" physicalName="clientes_direcciones_fk" pk-table-ref="TAB13" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP99" populated="true" UUID="b06ab605-322f-43be-810a-c22c5b10f221" fk-column-ref="COL30" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL14" />
+   <relationship id="REL111" populated="true" UUID="6e241ea6-db65-4429-a47c-60fe9ab2830b" deferrability="7" deleteRule="3" fk-table-ref="TAB29" fkCardinality="3" identifying="false" name="clientes_direcciones_fk" physicalName="clientes_direcciones_fk" pk-table-ref="TAB13" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP112" populated="true" UUID="b06ab605-322f-43be-810a-c22c5b10f221" fk-column-ref="COL30" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL14" />
    </relationship>
-   <relationship id="REL100" populated="true" UUID="00e06f66-b27f-4d65-a265-c14cdf997488" deferrability="7" deleteRule="3" fk-table-ref="TAB76" fkCardinality="7" identifying="false" name="clientes_incidencias_fk" physicalName="clientes_incidencias_fk" pk-table-ref="TAB13" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP101" populated="true" UUID="9824ddea-d0ce-4297-9e59-b37dd07acda6" fk-column-ref="COL77" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL14" />
+   <relationship id="REL113" populated="true" UUID="00e06f66-b27f-4d65-a265-c14cdf997488" deferrability="7" deleteRule="3" fk-table-ref="TAB76" fkCardinality="7" identifying="false" name="clientes_incidencias_fk" physicalName="clientes_incidencias_fk" pk-table-ref="TAB13" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP114" populated="true" UUID="9824ddea-d0ce-4297-9e59-b37dd07acda6" fk-column-ref="COL77" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL14" />
    </relationship>
-   <relationship id="REL102" populated="true" UUID="fff07074-4a33-4a76-aa89-fe52c94a68de" deferrability="7" deleteRule="3" fk-table-ref="TAB66" fkCardinality="7" identifying="false" name="clientes_equipos_fk" physicalName="clientes_equipos_fk" pk-table-ref="TAB13" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP103" populated="true" UUID="9acd517e-602d-40e6-abce-0742c3d847b0" fk-column-ref="COL67" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL14" />
+   <relationship id="REL115" populated="true" UUID="fff07074-4a33-4a76-aa89-fe52c94a68de" deferrability="7" deleteRule="3" fk-table-ref="TAB66" fkCardinality="7" identifying="false" name="clientes_equipos_fk" physicalName="clientes_equipos_fk" pk-table-ref="TAB13" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP116" populated="true" UUID="9acd517e-602d-40e6-abce-0742c3d847b0" fk-column-ref="COL67" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL14" />
    </relationship>
-   <relationship id="REL104" populated="true" UUID="6adf2d7e-cc2b-4dbe-9a87-f0821baba16f" deferrability="7" deleteRule="3" fk-table-ref="TAB53" fkCardinality="6" identifying="false" name="proveedores_partes_fk" physicalName="proveedores_partes_fk" pk-table-ref="TAB35" pkCardinality="6" updateRule="3" >
-    <column-mapping id="CMP105" populated="true" UUID="e864bf6f-998d-4f06-b7f9-df674c599162" fk-column-ref="COL54" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL36" />
+   <relationship id="REL117" populated="true" UUID="6adf2d7e-cc2b-4dbe-9a87-f0821baba16f" deferrability="7" deleteRule="3" fk-table-ref="TAB53" fkCardinality="6" identifying="false" name="proveedores_partes_fk" physicalName="proveedores_partes_fk" pk-table-ref="TAB35" pkCardinality="6" updateRule="3" >
+    <column-mapping id="CMP118" populated="true" UUID="e864bf6f-998d-4f06-b7f9-df674c599162" fk-column-ref="COL54" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL36" />
    </relationship>
-   <relationship id="REL106" populated="true" UUID="f005e372-4d67-4ae0-8f1b-cc72c6d9120a" deferrability="7" deleteRule="3" fk-table-ref="TAB76" fkCardinality="7" identifying="false" name="estados_incidencias_fk" physicalName="estados_incidencias_fk" pk-table-ref="TAB46" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP107" populated="true" UUID="988d1f02-2131-4f06-9403-be182025331d" fk-column-ref="COL77" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL47" />
+   <relationship id="REL119" populated="true" UUID="f005e372-4d67-4ae0-8f1b-cc72c6d9120a" deferrability="7" deleteRule="3" fk-table-ref="TAB76" fkCardinality="7" identifying="false" name="estados_incidencias_fk" physicalName="estados_incidencias_fk" pk-table-ref="TAB46" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP120" populated="true" UUID="988d1f02-2131-4f06-9403-be182025331d" fk-column-ref="COL77" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL47" />
    </relationship>
-   <relationship id="REL108" populated="true" UUID="37bc36a6-76f8-439b-8b5b-e8938d45db9d" deferrability="7" deleteRule="3" fk-table-ref="TAB53" fkCardinality="6" identifying="false" name="incidencias_partes_fk" physicalName="incidencias_partes_fk" pk-table-ref="TAB76" pkCardinality="6" updateRule="3" >
-    <column-mapping id="CMP109" populated="true" UUID="b0340b89-f57f-41cc-adb6-c652daaa0540" fk-column-ref="COL54" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL77" />
+   <relationship id="REL121" populated="true" UUID="37bc36a6-76f8-439b-8b5b-e8938d45db9d" deferrability="7" deleteRule="3" fk-table-ref="TAB53" fkCardinality="6" identifying="false" name="incidencias_partes_fk" physicalName="incidencias_partes_fk" pk-table-ref="TAB76" pkCardinality="6" updateRule="3" >
+    <column-mapping id="CMP122" populated="true" UUID="b0340b89-f57f-41cc-adb6-c652daaa0540" fk-column-ref="COL54" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL77" />
    </relationship>
-   <relationship id="REL110" populated="true" UUID="f98e5264-5f21-417c-82ae-6bee89bffd81" deferrability="7" deleteRule="3" fk-table-ref="TAB66" fkCardinality="6" identifying="false" name="incidencias_equipos_fk" physicalName="incidencias_equipos_fk" pk-table-ref="TAB76" pkCardinality="6" updateRule="3" >
-    <column-mapping id="CMP111" populated="true" UUID="81fa883f-ca01-4bbe-b318-83e6fa4e6d24" fk-column-ref="COL67" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL77" />
+   <relationship id="REL123" populated="true" UUID="f98e5264-5f21-417c-82ae-6bee89bffd81" deferrability="7" deleteRule="3" fk-table-ref="TAB66" fkCardinality="6" identifying="false" name="incidencias_equipos_fk" physicalName="incidencias_equipos_fk" pk-table-ref="TAB76" pkCardinality="6" updateRule="3" >
+    <column-mapping id="CMP124" populated="true" UUID="81fa883f-ca01-4bbe-b318-83e6fa4e6d24" fk-column-ref="COL67" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL77" />
    </relationship>
-   <relationship id="REL112" populated="true" UUID="922dc20f-9a36-4ee4-a76d-2bc397e9e9e6" deferrability="7" deleteRule="3" fk-table-ref="TAB76" fkCardinality="7" identifying="false" name="tipos_incidencias_incidencias_fk" physicalName="tipos_incidencias_incidencias_fk" pk-table-ref="TAB85" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP113" populated="true" UUID="0d7030db-eca7-4d4a-a843-d52b40fc8149" fk-column-ref="COL77" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL86" />
+   <relationship id="REL125" populated="true" UUID="922dc20f-9a36-4ee4-a76d-2bc397e9e9e6" deferrability="7" deleteRule="3" fk-table-ref="TAB76" fkCardinality="7" identifying="false" name="tipos_incidencias_incidencias_fk" physicalName="tipos_incidencias_incidencias_fk" pk-table-ref="TAB85" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP126" populated="true" UUID="0d7030db-eca7-4d4a-a843-d52b40fc8149" fk-column-ref="COL77" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL86" />
+   </relationship>
+   <relationship id="REL127" populated="true" UUID="3f31f0da-87a0-4e9e-975d-82dcb6580247" deferrability="7" deleteRule="3" fk-table-ref="TAB76" fkCardinality="7" identifying="false" name="tecnicos_incidencias_fk" physicalName="tecnicos_incidencias_fk" pk-table-ref="TAB92" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP128" populated="true" UUID="2a3e4a49-2f88-4738-95c5-bfccce498566" fk-column-ref="COL77" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL93" />
    </relationship>
   </relationships>
  </target-database>
@@ -387,19 +434,21 @@
   <table-pane table-ref="TAB46" x="1029" y="87" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB53" x="425" y="587" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB66" x="367" y="306" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB76" x="817" y="438" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB76" x="817" y="437" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB85" x="1247" y="259" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-link relationship-ref="REL92" pkConnection="0.2765957446808511" fkConnection="0.12698412698412698" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="129"/>
-  <table-link relationship-ref="REL94" pkConnection="0.2978723404255319" fkConnection="0.851063829787234" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
-  <table-link relationship-ref="REL96" pkConnection="0.48936170212765956" fkConnection="0.12169312169312169" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="65"/>
-  <table-link relationship-ref="REL98" pkConnection="0.401673640167364" fkConnection="0.7872340425531915" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
-  <table-link relationship-ref="REL104" pkConnection="0.46540880503144655" fkConnection="0.5220125786163522" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
-  <table-link relationship-ref="REL106" pkConnection="0.5594059405940595" fkConnection="0.31496062992125984" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="20"/>
-  <table-link relationship-ref="REL112" pkConnection="0.3153526970954357" fkConnection="0.6062992125984252" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="20"/>
-  <table-link relationship-ref="REL108" pkConnection="0.5261194029850746" fkConnection="0.7277486910994765" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="20"/>
-  <table-link relationship-ref="REL110" pkConnection="0.4881889763779528" fkConnection="0.2097902097902098" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
-  <table-link relationship-ref="REL100" pkConnection="0.8007380073800738" fkConnection="0.23880597014925373" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
-  <table-link relationship-ref="REL102" pkConnection="0.8242677824267782" fkConnection="0.5344827586206896" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="130"/>
+  <table-pane table-ref="TAB92" x="1107" y="637" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL105" pkConnection="0.2765957446808511" fkConnection="0.12698412698412698" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="129"/>
+  <table-link relationship-ref="REL107" pkConnection="0.2978723404255319" fkConnection="0.851063829787234" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL109" pkConnection="0.48936170212765956" fkConnection="0.12169312169312169" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="65"/>
+  <table-link relationship-ref="REL111" pkConnection="0.401673640167364" fkConnection="0.7872340425531915" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL117" pkConnection="0.46540880503144655" fkConnection="0.5220125786163522" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL119" pkConnection="0.5594059405940595" fkConnection="0.31496062992125984" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="20"/>
+  <table-link relationship-ref="REL125" pkConnection="0.3153526970954357" fkConnection="0.6062992125984252" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="20"/>
+  <table-link relationship-ref="REL121" pkConnection="0.5261194029850746" fkConnection="0.7277486910994765" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="20"/>
+  <table-link relationship-ref="REL123" pkConnection="0.4881889763779528" fkConnection="0.2097902097902098" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL113" pkConnection="0.8007380073800738" fkConnection="0.23880597014925373" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL115" pkConnection="0.8242677824267782" fkConnection="0.5344827586206896" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="130"/>
+  <table-link relationship-ref="REL127" pkConnection="0.14659685863874344" fkConnection="0.7798507462686567" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="66"/>
  </play-pen>
  <critic-manager>
   <critic-grouping platformType="Generic" enabled="true">
