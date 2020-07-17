@@ -108,7 +108,8 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
-        //
+        $paises = Pais::all();
+        return view('clientes.edit',compact('cliente','paises'));
     }
 
     /**
@@ -120,7 +121,44 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        //
+        $data = request()->validate([
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'fecha_nacimiento' => 'required|date',
+            'sexo' => 'required',
+            'dni' => 'required|unique:clientes,id,'.$cliente->id,
+            'cuil' => 'required|unique:clientes,id,'.$cliente->id,
+            'telefono' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'email' => 'required|email|unique:clientes,id,'.$cliente->id,
+            'disponibilidad_crediticia' => 'required',
+            'estado_crediticio' => 'required',
+            'pais_id' => 'required',
+            'provincia_id' => 'required',
+            'localidad_id' => 'required',
+            'calle' => 'required|regex:/^[a-zA-Z\s]*$/',
+            'altura' => 'required|numeric',
+        ]) ;
+
+        $direccion = $cliente->direccion;
+        $direccion->calle = $request->calle ;
+        $direccion->altura = $request->altura ;
+        $direccion->pais_id = $request->pais_id ;
+        $direccion->provincia_id = $request->provincia_id ;
+        $direccion->localidad_id = $request->localidad_id ;
+        $direccion->update();
+        $cliente->nombres = $request->nombres ;
+        $cliente->apellidos = $request->apellidos ;
+        $cliente->sexo = $request->sexo ;
+        $cliente->fecha_nacimiento = $request->fecha_nacimiento ;
+        $cliente->dni = $request->dni ;
+        $cliente->cuil = $request->cuil ;
+        $cliente->telefono = $request->telefono ;
+        $cliente->email = $request->email ;
+        $cliente->disponibilidad_crediticia = $request->disponibilidad_crediticia ;
+        $cliente->estado_crediticio = $request->estado_crediticio ;
+        $cliente->notas_particulares = $request->notas_particulares ;
+        $cliente->update();
+        return redirect(route('clientes.index'))->with('success','Cliente actualizado con exito!');
     }
 
     /**
