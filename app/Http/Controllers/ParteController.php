@@ -71,7 +71,7 @@ class ParteController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
