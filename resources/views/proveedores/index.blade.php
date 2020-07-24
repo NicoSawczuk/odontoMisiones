@@ -30,6 +30,13 @@
                     <td>{{$proveedor->nombre_persona_contacto}}</td>
                     <td>{{$proveedor->apellido_persona_contacto}}</td>
                     <td>{{$proveedor->notas_generales}}</td>
+                    <td>
+                        @if($proveedor->disponibilidad == 1)
+                            SI
+                        @else
+                            NO
+                        @endif
+                    </td>
                     <td class="text-right">
                         <a class="btn btn-light btn-sm" href="{{ route('proveedores.edit', $proveedor->id) }}">Editar</a>
                         <a class="btn btn-danger btn-sm text-white delete" val-palabra={{$proveedor->id}}>Borrar</a>
@@ -66,3 +73,22 @@
 
 
 @endsection
+@push('scripts')
+
+{{-- Script para eliminar --}}
+<script>
+    $(document).on('click', '.delete', function(){
+    id = $(this).attr('val-palabra');
+
+    url2="{{route('proveedores.destroy',":id")}}";
+    url2=url2.replace(':id',id);
+
+    $('#formDelete').attr('action',url2);
+    $('#confirmDelete').modal('show');
+    });
+
+    $('#formDelete').on('submit',function(){
+    $('#ok_delete').text('Eliminando...')
+    });
+</script>
+@endpush
