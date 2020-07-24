@@ -124,6 +124,15 @@ class ProveedorController extends Controller
      */
     public function destroy(Proveedor $proveedor)
     {
-        //
+        try {
+            if($proveedor->disponibilidad == 0){
+                $proveedor->delete();
+                return redirect(route('proveedores.index'))->with('success','Parte eliminada con exito!');
+            }else{
+                return redirect(route('proveedores.index'))->with('error','No es posible eliminar la parte porque tiene un estado disponible!');
+            }
+        } catch (Throwable $th) {
+            return redirect(route('proveedores.index'))->with('error','Error al eliminar la parte!');
+        }
     }
 }
