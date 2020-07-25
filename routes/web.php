@@ -84,13 +84,13 @@ Route::put('/tecnicos/{tecnico}', 'TecnicoController@update')->name('tecnicos.up
 Route::delete('tecnicos/{tecnico}', 'TecnicoController@destroy')->name('tecnicos.destroy'); //eliminar un tecnico
 
 //Incidencias
-Route::get('/incidencias', 'IncidenciasController@index')->name('incidencias.index'); //para mostrar todos los incidencias
-Route::get('/incidencias/create', 'IncidenciasController@create')->name('incidencias.create'); //renderizar la vista de creacion
-Route::post('/incidencias', 'IncidenciasController@store')->name('incidencias.store'); //guardar el form (crear un incidencia)
-Route::get('/incidencias/{incidencia}', 'IncidenciasController@show')->name('incidencias.show'); //ver datos de un solo incidencia
-Route::get('/incidencias/{incidencia}/edit', 'IncidenciasController@edit')->name('incidencias.edit'); //renderizar el form para editar un incidencia
-Route::put('/incidencias/{incidencia}', 'IncidenciasController@update')->name('incidencias.update'); //guardar lo que modificamos en el form de edicion
-Route::delete('incidencias/{incidencia}', 'IncidenciasController@destroy')->name('incidencias.destroy'); //eliminar un incidencia
+Route::get('/incidencias', 'IncidenciaController@index')->name('incidencias.index'); //para mostrar todos los incidencias
+Route::get('/incidencias/create', 'IncidenciaController@create')->name('incidencias.create'); //renderizar la vista de creacion
+Route::post('/incidencias', 'IncidenciaController@store')->name('incidencias.store'); //guardar el form (crear un incidencia)
+Route::get('/incidencias/{incidencia}', 'IncidenciaController@show')->name('incidencias.show'); //ver datos de un solo incidencia
+Route::get('/incidencias/{incidencia}/edit', 'IncidenciaController@edit')->name('incidencias.edit'); //renderizar el form para editar un incidencia
+Route::put('/incidencias/{incidencia}', 'IncidenciaController@update')->name('incidencias.update'); //guardar lo que modificamos en el form de edicion
+Route::delete('incidencias/{incidencia}', 'IncidenciaController@destroy')->name('incidencias.destroy'); //eliminar un incidencia
 
 //Tipos de incidencias
 Route::get('/tipos_incidencias', 'TipoIncidenciaController@index')->name('tipos_incidencias.index'); //para mostrar todos los tipos_incidencias
