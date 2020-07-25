@@ -6,7 +6,7 @@
     <div class="card card-primary card-outline">
         <div class="card-header">
             <h5>
-                Modificar proveedor
+                Edicion de proveedor
             </h5>
         </div>
         <div class="card-body">
