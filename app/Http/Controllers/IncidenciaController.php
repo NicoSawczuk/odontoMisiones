@@ -14,7 +14,8 @@ class IncidenciaController extends Controller
      */
     public function index()
     {
-        //
+        $incidencias = Incidencia::all();
+        return view('incidencias.index', compact('incidencias'));
     }
 
     /**
