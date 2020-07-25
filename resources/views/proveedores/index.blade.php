@@ -30,13 +30,6 @@
                     <td>{{$proveedor->nombre_persona_contacto}}</td>
                     <td>{{$proveedor->apellido_persona_contacto}}</td>
                     <td>{{$proveedor->notas_generales}}</td>
-                    <td>
-                        @if($proveedor->disponibilidad == 1)
-                            SI
-                        @else
-                            NO
-                        @endif
-                    </td>
                     <td class="text-right">
                         <a class="btn btn-light btn-sm" href="{{ route('proveedores.edit', $proveedor->id) }}">Editar</a>
                         <a class="btn btn-danger btn-sm text-white delete" val-palabra={{$proveedor->id}}>Borrar</a>
