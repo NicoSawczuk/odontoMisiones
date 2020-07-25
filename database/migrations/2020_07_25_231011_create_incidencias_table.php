@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIncidentesTable extends Migration
+class CreateIncidenciasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateIncidentesTable extends Migration
      */
     public function up()
     {
-        Schema::create('incidentes', function (Blueprint $table) {
+        Schema::create('incidencias', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateIncidentesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('incidentes');
+        Schema::dropIfExists('incidencias');
     }
 }
