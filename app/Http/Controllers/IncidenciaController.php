@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Incidente;
+use App\Incidencia;
 use Illuminate\Http\Request;
 
-class IncidenteController extends Controller
+class IncidenciaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class IncidenteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Incidente  $incidente
+     * @param  \App\Incidencia  $incidencia
      * @return \Illuminate\Http\Response
      */
-    public function show(Incidente $incidente)
+    public function show(Incidencia $incidencia)
     {
         //
     }
@@ -52,10 +52,10 @@ class IncidenteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Incidente  $incidente
+     * @param  \App\Incidencia  $incidencia
      * @return \Illuminate\Http\Response
      */
-    public function edit(Incidente $incidente)
+    public function edit(Incidencia $incidencia)
     {
         //
     }
@@ -64,10 +64,10 @@ class IncidenteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Incidente  $incidente
+     * @param  \App\Incidencia  $incidencia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Incidente $incidente)
+    public function update(Request $request, Incidencia $incidencia)
     {
         //
     }
@@ -75,10 +75,10 @@ class IncidenteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Incidente  $incidente
+     * @param  \App\Incidencia  $incidencia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Incidente $incidente)
+    public function destroy(Incidencia $incidencia)
     {
         //
     }
