@@ -28,6 +28,32 @@
         <li class="nav-item has-treeview {{ (request()->routeIs('clientes.*')) ? 'menu-open active' : '' }}">
           <a href="#" class="nav-link"
             style="{{ (request()->routeIs('clientes.*')) ? 'background-color: #3c8dbc; color: white;' : '' }}">
+            <i class="nav-item fas fa-tasks"></i>
+            <p>
+               Incidentes
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{route('clientes.index')}}" class="nav-link"
+                style="{{ (request()->routeIs('clientes.index')) ? 'color: #3c8dbc;' : '' }}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Ver incidentes</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{route('clientes.index')}}" class="nav-link"
+                style="{{ (request()->routeIs('clientes.index')) ? 'color: #3c8dbc;' : '' }}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Ver tipos de incidentes</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item has-treeview {{ (request()->routeIs('clientes.*')) ? 'menu-open active' : '' }}">
+          <a href="#" class="nav-link"
+            style="{{ (request()->routeIs('clientes.*')) ? 'background-color: #3c8dbc; color: white;' : '' }}">
             <i class="nav-item fas fa-users"></i>
             <p>
               Clientes
