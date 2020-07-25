@@ -98,7 +98,7 @@ class ProveedorController extends Controller
             'empresa' => 'required',
             'direccion_postal' => 'required',
             'telefono' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            'email' => 'required',
+            'email' => 'required|email|unique:proveedores,email,'.$proveedor->id,
             'nombre_persona_contacto' => 'required',
             'apellido_persona_contacto' => 'required',
         ]) ;
