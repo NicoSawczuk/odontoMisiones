@@ -121,7 +121,7 @@
         </div>
         <div class="card-footer float">
             <div class="float-right">
-                <a href="" class="btn btn-dark"><i class="fa fa-times"></i> Cancelar </a>
+                <a href="javascript:history.back()" class="btn btn-dark"><i class="fa fa-times"></i> Cancelar </a>
                 <button type="submit" class="btn btn-primary "><i class="fa fa-check"></i> Guardar</button>
             </div>
         </div>
