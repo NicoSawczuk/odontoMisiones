@@ -14,7 +14,9 @@ class TecnicoController extends Controller
      */
     public function index()
     {
-        //
+        $tecnicos = Tecnico::all();
+
+        return view('tecnicos.index', compact('tecnicos'));
     }
 
     /**
