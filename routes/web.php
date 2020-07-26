@@ -100,3 +100,12 @@ Route::get('/tipos_incidencias/{tipoIncidencia}', 'TipoIncidenciaController@show
 Route::get('/tipos_incidencias/{tipoIncidencia}/edit', 'TipoIncidenciaController@edit')->name('tipos_incidencias.edit'); //renderizar el form para editar un tipoIncidencia
 Route::put('/tipos_incidencias/{tipoIncidencia}', 'TipoIncidenciaController@update')->name('tipos_incidencias.update'); //guardar lo que modificamos en el form de edicion
 Route::delete('tipos_incidencias/{tipoIncidencia}', 'TipoIncidenciaController@destroy')->name('tipos_incidencias.destroy'); //eliminar un tipoIncidencia
+
+//Tecnicos
+Route::get('/tecnicos', 'TecnicoController@index')->name('tecnicos.index'); //para mostrar todos los tecnicos
+Route::get('/tecnicos/create', 'TecnicoController@create')->name('tecnicos.create'); //renderizar la vista de creacion
+Route::post('/tecnicos', 'TecnicoController@store')->name('tecnicos.store'); //guardar el form (crear un tecnico)
+Route::get('/tecnicos/{tecnico}', 'TecnicoController@show')->name('tecnicos.show'); //ver datos de un solo tecnico
+Route::get('/tecnicos/{tecnico}/edit', 'TecnicoController@edit')->name('tecnicos.edit'); //renderizar el form para editar un tecnico
+Route::put('/tecnicos/{tecnico}', 'TecnicoController@update')->name('tecnicos.update'); //guardar lo que modificamos en el form de edicion
+Route::delete('tecnicos/{tecnico}', 'TecnicoController@destroy')->name('tecnicos.destroy'); //eliminar un tecnico
