@@ -17,7 +17,7 @@
             <div class="image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Usuario</a>
+                <a href="#" class="d-block">{{Auth::user()->name}}</a>
             </div>
         </div>
 
@@ -138,6 +138,16 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('logout') }}"
+                      onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
+                      <i class="fas fa-sign-out-alt nav-item"></i>
+                      <p>Salir</p>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                    </form>
+                  </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
