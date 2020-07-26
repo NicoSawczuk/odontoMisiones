@@ -25,32 +25,6 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-        <li class="nav-item has-treeview {{ (request()->routeIs('incidencias.*')) ? 'menu-open active' : '' }}">
-          <a href="#" class="nav-link"
-            style="{{ (request()->routeIs('indicencias.*')) ? 'background-color: #3c8dbc; color: white;' : '' }}">
-            <i class="nav-item fas fa-tasks"></i>
-            <p>
-               Incidentes
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{route('incidencias.index')}}" class="nav-link"
-                style="{{ (request()->routeIs('incidencias.index')) ? 'color: #3c8dbc;' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Ver incidentes</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{route('tipos_incidencias.index')}}" class="nav-link"
-                style="{{ (request()->routeIs('tipo_incidencias.index')) ? 'color: #3c8dbc;' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Ver tipos de incidentes</p>
-              </a>
-            </li>
-          </ul>
-        </li>
         <li class="nav-item has-treeview {{ (request()->routeIs('clientes.*')) ? 'menu-open active' : '' }}">
           <a href="#" class="nav-link"
             style="{{ (request()->routeIs('clientes.*')) ? 'background-color: #3c8dbc; color: white;' : '' }}">
@@ -85,6 +59,25 @@
                 style="{{ (request()->routeIs('equipos.index')) ? 'color: #3c8dbc;' : '' }}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Ver equipos</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item has-treeview {{ (request()->routeIs('tecnicos.*')) ? 'menu-open active' : '' }}">
+          <a href="#" class="nav-link"
+            style="{{ (request()->routeIs('tecnicos.*')) ? 'background-color: #3c8dbc; color: white;' : '' }}">
+            <i class="nav-item fas fa-hard-hat"></i>
+            <p>
+              Tecnicos
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{route('tecnicos.index')}}" class="nav-link"
+                style="{{ (request()->routeIs('tecnicos.index')) ? 'color: #3c8dbc;' : '' }}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Ver tecnicos</p>
               </a>
             </li>
           </ul>
