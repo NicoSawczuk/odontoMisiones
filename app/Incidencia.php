@@ -10,4 +10,8 @@ class Incidencia extends Model
     public function estado(){
         return $this->belongsTo(Estado::class);
     }
+
+    public function tecnico(){
+        return $this->belongsTo(Tecnico::class);
+    }
 }
