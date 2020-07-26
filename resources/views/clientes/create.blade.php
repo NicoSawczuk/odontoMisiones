@@ -55,12 +55,9 @@
                         <label for="sexo" class="">Sexo</label>
                         <select name="sexo" id="sexo" class="form-control" required>
                             <option value="" selected disabled>--Seleccione--</option>
-                            <option value="FEMENINO" @if("FEMENINO" == old('sexo')) selected
-                                @endif>Femenino</option>
-                            <option value="MASCULINO"  @if("MASCULINO" == old('sexo')) selected
-                            @endif>Masculino</option>
-                            <option value="NO ACLARA"  @if("NO ACLARA" == old('sexo')) selected
-                            @endif>No aclara</option>
+                            <option value="FEMENINO" @if("FEMENINO"==old('sexo')) selected @endif>Femenino</option>
+                            <option value="MASCULINO" @if("MASCULINO"==old('sexo')) selected @endif>Masculino</option>
+                            <option value="NO ACLARA" @if("NO ACLARA"==old('sexo')) selected @endif>No aclara</option>
                         </select>
                         @error('sexo')
                         <span class="invalid-feedback" role="alert">
@@ -126,10 +123,8 @@
                         <select name="disponibilidad_crediticia" id="disponibilidad_crediticia" class="form-control"
                             required>
                             <option value="" selected disabled>--Seleccione--</option>
-                            <option value="1"  @if("1" == old('disponibilidad_crediticia')) selected
-                            @endif>SI</option>
-                            <option value="0" @if("0" == old('disponibilidad_crediticia')) selected
-                            @endif>NO</option>
+                            <option value="1" @if("1"==old('disponibilidad_crediticia')) selected @endif>SI</option>
+                            <option value="0" @if("0"==old('disponibilidad_crediticia')) selected @endif>NO</option>
                         </select>
                         @error('disponibilidad_crediticia')
                         <span class="invalid-feedback" role="alert">
@@ -143,10 +138,8 @@
                         <label for="estado_crediticio" class="">Estado Crediticio</label>
                         <select name="estado_crediticio" id="estado_crediticio" class="form-control" required>
                             <option value="" selected disabled>--Seleccione--</option>
-                            <option value="1" @if("1" == old('estado_crediticio')) selected
-                            @endif>Activo</option>
-                            <option value="0" @if("0" == old('estado_crediticio')) selected
-                            @endif>Inactivo</option>
+                            <option value="1" @if("1"==old('estado_crediticio')) selected @endif>Activo</option>
+                            <option value="0" @if("0"==old('estado_crediticio')) selected @endif>Inactivo</option>
                         </select>
                         @error('estado_crediticio')
                         <span class="invalid-feedback" role="alert">
@@ -204,8 +197,7 @@
                     <div class="form-group ">
                         <label for="calle">Calle</label>
                         <input type="text" class="form-control  @error('calle') is-invalid @enderror" id="calle"
-                            name="calle" value="{{ old('calle') }}" placeholder="Especifique su calle"
-                            required>
+                            name="calle" value="{{ old('calle') }}" placeholder="Especifique su calle" required>
                         @error('calle')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -217,8 +209,7 @@
                     <div class="form-group ">
                         <label for="altura">Altura</label>
                         <input type="number" class="form-control  @error('altura') is-invalid @enderror" id="altura"
-                            name="altura" value="{{ old('altura') }}" placeholder="Nº"
-                            required>
+                            name="altura" value="{{ old('altura') }}" placeholder="Nº" required>
                         @error('altura')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -244,6 +235,9 @@
 </form>
 @endsection
 @push('scripts')
+<script type="text/javascript">
+    document.getElementById("fecha_nacimiento").max = new Date().toISOString().split("T")[0];
+</script>
 <script>
     $(document).ready(function(){
         $('#pais_id').change(function(){

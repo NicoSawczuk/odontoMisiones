@@ -190,7 +190,7 @@
                 <div class="col-3">
                     <div class="form-group ">
                         <label for="provincia_id" class="">Provincia</label>
-                        <select name="provincia_id" id="provincia_id" class=" form-control" >
+                        <select name="provincia_id" id="provincia_id" class=" form-control">
                         </select>
                         <input type="hidden" id="valorProvincia" value="{{$cliente->direccion->provincia->id}}">
                         @error('provincia_id')
@@ -204,7 +204,7 @@
                     <div class="form-group">
                         <label for="localidad_id" class="">Localidad</label>
 
-                        <select name="localidad_id" id="localidad_id" class="form-control" >
+                        <select name="localidad_id" id="localidad_id" class="form-control">
                         </select>
                         <input type="hidden" id="valorLocalidad" value="{{$cliente->direccion->localidad->id}}">
                         @error('localidad_id')
@@ -258,6 +258,9 @@
 </form>
 @endsection
 @push('scripts')
+<script type="text/javascript">
+    document.getElementById("fecha_nacimiento").max = new Date().toISOString().split("T")[0];
+</script>
 <script>
     $(document).ready(function(){
 
