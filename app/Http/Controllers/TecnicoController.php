@@ -73,7 +73,7 @@ class TecnicoController extends Controller
      */
     public function edit(Tecnico $tecnico)
     {
-        //
+        return view('tecnicos.edit', compact('tecnico'));
     }
 
     /**
@@ -85,7 +85,28 @@ class TecnicoController extends Controller
      */
     public function update(Request $request, Tecnico $tecnico)
     {
-        //
+        $data = request()->validate([
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'fecha_nacimiento' => 'required|date',
+            'sexo' => 'required',
+            'dni' => 'required|unique:clientes,id,'.$tecnico->id,
+            'cuil' => 'required|unique:clientes,id,'.$tecnico->id,
+            'telefono' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'email' => 'required|email|unique:clientes,id,'.$tecnico->id,
+        ]);
+
+        $tecnico->nombres = $request->nombres;
+        $tecnico->apellidos = $request->apellidos;
+        $tecnico->fecha_nacimiento = $request->fecha_nacimiento;
+        $tecnico->sexo = $request->sexo;
+        $tecnico->dni = $request->dni;
+        $tecnico->cuil = $request->cuil;
+        $tecnico->telefono = $request->telefono;
+        $tecnico->email = $request->email;
+        $tecnico->notas_particulares = $request->notas_particulares;
+        $tecnico->update();
+        return redirect(route('tecnicos.index'))->with('success', 'Técnico '.$tecnico->nombres.' '.$tecnico->apellidos.' modificado con éxito');
     }
 
     /**
