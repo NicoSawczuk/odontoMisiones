@@ -81,12 +81,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    odontoMisiones
+                    Odonto Misiones
                 </div>
 
-                <div class="links">
-                    <a href="{{route('clientes.index')}}">Clientes</a>
-                </div>
             </div>
         </div>
     </body>

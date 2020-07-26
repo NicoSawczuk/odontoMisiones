@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>odontoMisiones</title>
+    <title>Odonto Misiones</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -25,7 +25,8 @@
     {{-- Select con buscador --}}
     <!-- Select2 -->
     <link rel="stylesheet" href="{{asset('assets/admin-lte/plugins/select2/css/select2.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+    <link rel="stylesheet"
+        href="{{asset('assets/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 
 </head>
 
@@ -39,10 +40,11 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Main content -->
-            <section class="content mt-4">
-                {{-- Esta etiqueta nos servira porque en la otra pagina vamos a hacer refencia a la misma y lo que agreguemos se va a agregar dentro de esta seecion/etiquetas --}}
+            <br>
+            <div class="container-fluid">
                 @yield('content')
-            </section>
+            </div>
+
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
