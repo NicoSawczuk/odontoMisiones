@@ -29,7 +29,7 @@
                     <td>{{$tecnico->sexo}}</td>
                     <td class="text-right">{{$tecnico->telefono}}</td>
                     <td>{{$tecnico->email}}</td>
-                    <td>{{$tecnico->Notas_particulares}}</td>
+                    <td>{{$tecnico->notas_particulares}}</td>
                     <td class="text-right">
                         <a class="btn btn-light btn-sm" href="{{ route('tecnicos.edit', $tecnico->id) }}">Editar</a>
                         <a class="btn btn-danger btn-sm text-white delete" val-palabra={{$tecnico->id}}>Borrar</a>

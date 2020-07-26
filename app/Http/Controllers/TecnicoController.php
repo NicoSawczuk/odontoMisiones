@@ -26,7 +26,7 @@ class TecnicoController extends Controller
      */
     public function create()
     {
-        //
+        return view('tecnicos.create');
     }
 
     /**
@@ -37,7 +37,21 @@ class TecnicoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'fecha_nacimiento' => 'required|date',
+            'sexo' => 'required',
+            'dni' => 'required|unique:clientes',
+            'cuil' => 'required|unique:clientes',
+            'telefono' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'email' => 'required|email|unique:clientes',
+        ]);
+
+        $tecnico = new Tecnico($data);
+        $tecnico->notas_particulares = $request->notas_particulares;
+        $tecnico->save();
+        return redirect(route('tecnicos.index'))->with('success', 'Técnico '.$tecnico->nombres.' '.$tecnico->apellidos.' creado con éxito');
     }
 
     /**
