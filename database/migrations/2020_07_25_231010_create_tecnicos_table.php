@@ -26,9 +26,6 @@ class CreateTecnicosTable extends Migration
             $table->string('email');
             $table->text('notas_particulares')->nullable();
 
-            $table->unsignedBigInteger('incidencia_id');
-            $table->foreign('incidencia_id')->references('id')->on('incidencias');
-
 
             $table->softDeletes();
             $table->timestamps();
