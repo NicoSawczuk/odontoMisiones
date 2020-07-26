@@ -15,4 +15,9 @@ class Equipo extends Model
     public function cliente(){
         return $this->belongsTo(Cliente::class);
     }
+
+    public function incidencias()
+    {
+        return $this->belongsToMany(Incidencia::class);
+    }
 }
