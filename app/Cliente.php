@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Cliente extends Model
 {
     use SoftDeletes;
+    protected $guarded = [];
+    public $table = "clientes";
 
     //Relaciones
     public function direccion(){
@@ -18,6 +20,12 @@ class Cliente extends Model
     public function equipos(){
         return $this->hasMany(Equipo::class);
     }
+
+    public function incidencias(){
+        return $this->hasMany(Incidencia::class);
+    }
+
+    
 
 
 }
