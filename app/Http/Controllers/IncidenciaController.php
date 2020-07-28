@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Cliente;
+use App\Estado;
 use App\Incidencia;
+use App\Tecnico;
 use App\TipoIncidencia;
 use Illuminate\Http\Request;
 
@@ -29,7 +31,8 @@ class IncidenciaController extends Controller
     {
         $clientes = Cliente::all();
         $tiposIncidencias = TipoIncidencia::all();
-        return view('incidencias.create', compact('clientes','tiposIncidencias'));
+        $tecnicos= Tecnico::all();
+        return view('incidencias.create', compact('clientes','tiposIncidencias','tecnicos'));
     }
 
     /**
@@ -40,7 +43,32 @@ class IncidenciaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'cliente_id' => 'required',
+            'equipos_id.*' => 'required',
+            'fecha_comienzo_incidencia' => 'required|date',
+            'tipo_incidencia_id' => 'required',
+            'presupuesto' => 'required',
+            'diagnostico_general' => 'required',
+        ]) ;
+
+        $incidencia = new Incidencia() ;
+        $incidencia->cliente_id = $request->cliente_id;
+        $incidencia->fecha_comienzo_incidencia = $request->fecha_comienzo_incidencia;
+        $incidencia->tipo_incidencia_id = $request->tipo_incidencia_id;
+        $incidencia->presupuesto = $request->presupuesto;
+        $incidencia->diagnostico_general = $request->diagnostico_general;
+        if($request->tecnico_id == null){
+            $incidencia->estado_id = Estado::first()->id ;
+        }else{
+            $incidencia->estado_id = Estado::find(2)->id ;
+            $incidencia->tecnico_id = $request->tecnico_id;
+        }
+        $incidencia->save() ;
+        $incidencia->equipos()->sync($request->equipos_id);
+        return redirect(route('incidencias.index'))->with('success', 'La incidencia fue creada con éxito!');
+
+
     }
 
     /**

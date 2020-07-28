@@ -16,15 +16,15 @@ class CreateIncidenciasTable extends Migration
         Schema::create('incidencias', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('fecha_comienzo_incidencia');
-            $table->date('fecha_fin_incidencia');
-            $table->double('presupuesto');
+            $table->date('fecha_fin_incidencia')->nullable();
+            $table->double('presupuesto'); // este es el precio base
             $table->text('diagnostico_general');
-            $table->double('precio_trabajo');
+            $table->double('precio_trabajo')->nullable(); // este el el precio final inluyendo las partes utilizadas
             //relacion con el cliente que inicia el incidente
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('clientes');
             //relacion con el tecnico encargado del incidente
-            $table->unsignedBigInteger('tecnico_id');
+            $table->unsignedBigInteger('tecnico_id')->nullable();
             $table->foreign('tecnico_id')->references('id')->on('tecnicos');
             //relacion con el tipo de incidencia
             $table->unsignedBigInteger('tipo_incidencia_id');

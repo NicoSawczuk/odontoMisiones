@@ -15,12 +15,12 @@ class TiposIncidenciasSeed extends Seeder
         TipoIncidencia::create([
             'nombre' => 'Instalacion',
             'descripcion' => 'aquellas dónde se deben realizar la instalación, y puesta en marcha, de un equipo a domicilio',
-            'monto_mano_obra' => 100
+            'monto_mano_obra' => 2650
         ]);
         TipoIncidencia::create([
             'nombre' => 'Servicio',
             'descripcion' => 'aquellas dónde se deban realizar el diagnóstico y reparación de un equipo, sea en domicilio o en taller.',
-            'monto_mano_obra' => 100
+            'monto_mano_obra' => 1500
         ]);
     }
 }
