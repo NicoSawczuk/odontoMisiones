@@ -48,7 +48,7 @@
                             <a href="{{route('tipos_incidencias.index')}}" class="nav-link"
                                 style="{{ (request()->routeIs('tipo_incidencias.index')) ? 'color: #3c8dbc;' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Ver tipos de incidentes</p>
+                                <p>Ver tipos de incidencias</p>
                             </a>
                         </li>
                     </ul>
