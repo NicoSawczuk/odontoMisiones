@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{asset('assets/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    {{-- Select con buscador --}}
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{asset('assets/admin-lte/plugins/select2/css/select2.min.css')}}">
+    <link rel="stylesheet"
+        href="{{asset('assets/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('assets/admin-lte/dist/css/adminlte.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
@@ -22,11 +27,6 @@
     {{-- Toastr --}}
     <link href="{{asset('assets/extensiones/toastr/toastr.min.css')}}" rel="stylesheet" />
 
-    {{-- Select con buscador --}}
-    <!-- Select2 -->
-    <link rel="stylesheet" href="{{asset('assets/admin-lte/plugins/select2/css/select2.min.css')}}">
-    <link rel="stylesheet"
-        href="{{asset('assets/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 
 </head>
 
@@ -70,6 +70,8 @@
     <script src="{{asset('assets/js/incluirDatatable.js')}}"></script>
     {{-- Toastr --}}
     <script src="{{asset('assets/extensiones/toastr/toastr.min.js')}}"></script>
+    {{-- Multiselect (Select2) --}}
+    <script src="{{asset('assets/extensiones/select2/js/select2.full.min.js')}}"></script>
     {{-- Si el mensaje que enviamos es success --}}
     @if (session('success'))
     <script>
