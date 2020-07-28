@@ -6,10 +6,10 @@
     <div class="col-md-3">
 
         <!-- Profile Image -->
-        <div class="card card-teal card-outline">
+        <div class="card card-primary card-outline">
             <div class="card-body box-profile">
                 <div class="text-center">
-                    <span style="font-size: 10em; color: #A3A0A3;">
+                    <span style="font-size: 10em; color: #3c8dbc;">
                         <i class="fas fa-tasks"></i>
                     </span>
                 </div>
@@ -21,28 +21,32 @@
 
                 <ul class="list-group list-group-unbordered mb-3">
                     <li class="list-group-item">
-                        <b>Estado</b> 
+                        <b>Estado</b>
                         <a class="float-right"><span class="badge badge-pill"
                                 style="background-color: {{$incidencia->estado->color}}; color: white;">{{ $incidencia->estado->nombre }}</span>
                         </a>
                     </li>
 
                     <li class="list-group-item">
-                        <b>Técnico</b> 
+                        <b>Técnico</b>
                         <a class="float-right"><span
                                 class="badge badge-pill bg-light">{{ $incidencia->tecnico->nombres }}
                                 {{ $incidencia->tecnico->apellidos }}</span>
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <b>Tipo de incidencia</b> 
+                        <b>Tipo de incidencia</b>
                         <a class="float-right">
-                            <span class="badge badge-pill">{{ $incidencia->tipoIncidencia->nombre }}</span>
+                            <span class="badge badge-pill bg-light">{{ $incidencia->tipoIncidencia->nombre }}</span>
                         </a>
                     </li>
                 </ul>
 
-                <p>BOTONES</p>
+                <center>
+                    <a class="btn btn-app" title="Asignar incidencia">
+                        <i class="fas fa-hand-pointer"></i> Asignar
+                    </a>
+                </center>
             </div>
             <!-- /.card-body -->
         </div>
@@ -70,67 +74,80 @@
                         <hr style="margin-bottom: 1%; margin-top: 0%">
                         <dl class="row" style="margin-left: 1%">
                             <dt class="col-sm-3">Fecha comienzo</dt>
-                            <dd class="col-sm-8 text-muted">{{ $incidencia->fecha_comienzo_incidencia }}</dd>
+                            <dd class="col-sm-8 text-muted">
+                                {{ \Carbon\Carbon::create($incidencia->fecha_comienzo_incidencia)->format('d/m/Y')}}
+                            </dd>
                         </dl>
                         <dl class="row" style="margin-left: 1%">
                             <dt class="col-sm-3">Fecha de fin</dt>
-                            <dd class="col-sm-8 text-muted">{{ $incidencia->fecha_fin_incidencia }}</dd>
+                            <dd class="col-sm-8 text-muted">
+                                {{ \Carbon\Carbon::create($incidencia->fecha_fin_incidencia)->format('d/m/Y')}}
+                            </dd>
                         </dl>
                         <dl class="row" style="margin-left: 1%">
                             <dt class="col-sm-3">Presupuesto</dt>
-                            <dd class="col-sm-8 text-muted">{{ $incidencia->presupuesto }}</dd>
+                            <dd class="col-sm-8 text-muted">${{ $incidencia->presupuesto }}</dd>
                         </dl>
                         <dl class="row" style="margin-left: 1%">
                             <dt class="col-sm-3">Precio de trabajo</dt>
-                            <dd class="col-sm-8 text-muted">{{ $incidencia->precio_trabajo }}</dd>
+                            <dd class="col-sm-8 text-muted">${{ $incidencia->precio_trabajo }}</dd>
                         </dl>
                         <dl class="row" style="margin-left: 1%">
                             <dt class="col-sm-3">Diagnóstico general</dt>
-                            <dd class="col-sm-8 text-muted">{{ $incidencia->diagnostico_general }}Kg</dd>
+                            <dd class="col-sm-8 text-muted">{{ $incidencia->diagnostico_general }}</dd>
                         </dl>
 
                         <div class="text-muted" style="font-family: 'Open Sans', serif;">TECNICO</div>
                         <hr style="margin-bottom: 1%; margin-top: 0%">
                         <dl class="row" style="margin-left: 1%">
                             <dt class="col-sm-3">Nombres</dt>
-                            <dd class="col-sm-8 text-muted">{{ $incidencia->tecnico->sexo }}</dd>
+                            <dd class="col-sm-8 text-muted">{{ $incidencia->tecnico->nombres }}</dd>
                         </dl>
                         <dl class="row" style="margin-left: 1%">
                             <dt class="col-sm-3">Apellidos</dt>
-                            <dd class="col-sm-8 text-muted">{{ $incidencia->tecnico->altura }}m</dd>
+                            <dd class="col-sm-8 text-muted">{{ $incidencia->tecnico->apellidos }}</dd>
                         </dl>
                         <dl class="row" style="margin-left: 1%">
                             <dt class="col-sm-3">CUIL</dt>
-                            <dd class="col-sm-8 text-muted">{{ $incidencia->tecnico->cuil }}Kg</dd>
+                            <dd class="col-sm-8 text-muted">{{ $incidencia->tecnico->cuil }}</dd>
                         </dl>
                         <dl class="row" style="margin-left: 1%">
                             <dt class="col-sm-3">Teléfono</dt>
-                            <dd class="col-sm-8 text-muted">{{ $incidencia->tecnico->telefono }}Kg</dd>
+                            <dd class="col-sm-8 text-muted">{{ $incidencia->tecnico->telefono }}</dd>
                         </dl>
 
                         <div class="text-muted" style="font-family: 'Open Sans', serif;">CLIENTE</div>
                         <hr style="margin-bottom: 1%; margin-top: 0%">
                         <dl class="row" style="margin-left: 1%">
-                            <dt class="col-sm-3">Teléfono</dt>
-                            <dd class="col-sm-8 text-muted">{{ $incidencia->cliente->telefono }}Kg</dd>
+                            <dt class="col-sm-3">Nombres</dt>
+                            <dd class="col-sm-8 text-muted">{{ $incidencia->cliente->nombres }}</dd>
+                        </dl>
+                        <dl class="row" style="margin-left: 1%">
+                            <dt class="col-sm-3">Apellidos</dt>
+                            <dd class="col-sm-8 text-muted">{{ $incidencia->cliente->apellidos }}</dd>
+                        </dl>
+                        <dl class="row" style="margin-left: 1%">
+                            <dt class="col-sm-3">CUIL</dt>
+                            <dd class="col-sm-8 text-muted">{{ $incidencia->cliente->cuil }}</dd>
+                        </dl>
+                        <dl class="row" style="margin-left: 1%">
+                            <dt class="col-sm-3">Número de cliente</dt>
+                            <dd class="col-sm-8 text-muted">{{ $incidencia->cliente->numero_cliente }}</dd>
                         </dl>
                         <dl class="row" style="margin-left: 1%">
                             <dt class="col-sm-3">Teléfono</dt>
-                            <dd class="col-sm-8 text-muted">{{ $incidencia->cliente->telefono }}Kg</dd>
-                        </dl>
-                        <dl class="row" style="margin-left: 1%">
-                            <dt class="col-sm-3">Teléfono</dt>
-                            <dd class="col-sm-8 text-muted">{{ $incidencia->cliente->telefono }}Kg</dd>
+                            <dd class="col-sm-8 text-muted">{{ $incidencia->cliente->telefono }}</dd>
                         </dl>
 
 
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="partes">
-                        @if($cliente->partes()->count() != 0)
+                        @if($incidencia->partes()->count() != 0)
 
                         <div class="table-responsive">
-                            <table id="datatable" class="table table-head-fixed text-nowrap table-striped table-bordered">
+                            <table id="datatable"
+                                class="table table-head-fixed text-nowrap table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th>Marca</th>
