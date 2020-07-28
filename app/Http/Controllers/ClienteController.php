@@ -171,4 +171,8 @@ class ClienteController extends Controller
     {
         //
     }
+
+    public function obtenerEquipos(Cliente $cliente){
+        return $cliente->equipos ;
+    }
 }
