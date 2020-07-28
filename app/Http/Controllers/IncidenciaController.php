@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Cliente;
 use App\Incidencia;
+use App\TipoIncidencia;
 use Illuminate\Http\Request;
 
 class IncidenciaController extends Controller
@@ -25,7 +27,9 @@ class IncidenciaController extends Controller
      */
     public function create()
     {
-        //
+        $clientes = Cliente::all();
+        $tiposIncidencias = TipoIncidencia::all();
+        return view('incidencias.create', compact('clientes','tiposIncidencias'));
     }
 
     /**
@@ -47,7 +51,7 @@ class IncidenciaController extends Controller
      */
     public function show(Incidencia $incidencia)
     {
-        //
+        return view('incidencias.show', compact('incidencia')) ;
     }
 
     /**
@@ -82,5 +86,9 @@ class IncidenciaController extends Controller
     public function destroy(Incidencia $incidencia)
     {
         //
+    }
+
+    public function obtenerMonto(TipoIncidencia $tipoIncidencia){
+        return $tipoIncidencia->monto_mano_obra;
     }
 }
