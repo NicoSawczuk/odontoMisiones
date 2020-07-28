@@ -22,7 +22,7 @@
                     <br>Tu perfil está pendiente de revisión, en breve lo estaremos haciendo y ya podrás utilizar
                     nuestros servicios.
                     <br>
-                    Por favor esperaa la revisión y
+                    Por favor espera la revisión y
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         vuelve a iniciar sesión
