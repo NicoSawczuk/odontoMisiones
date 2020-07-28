@@ -15,6 +15,9 @@ class CreateTiposIncidenciasTable extends Migration
     {
         Schema::create('tipos_incidencias', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->decimal('monto_mano_obra');
             $table->timestamps();
         });
     }
