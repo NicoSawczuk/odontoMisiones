@@ -41,7 +41,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if ($user->roles->count() === 0){
-            return redirect(route('registro_completo'));
+            return redirect(route('usuarios.registro_completo'));
         }else{
             return redirect(route('home'));
         }
