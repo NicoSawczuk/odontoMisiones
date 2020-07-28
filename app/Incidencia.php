@@ -29,4 +29,9 @@ class Incidencia extends Model
         return $this->belongsToMany(Parte::class);
     }
 
+    public function tipoIncidencia()
+    {
+        return $this->belongsTo(TipoIncidencia::class);
+    }
+
 }
