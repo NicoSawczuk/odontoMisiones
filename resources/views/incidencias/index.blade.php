@@ -57,6 +57,7 @@
                         @endif
                     </td>
                     <td class="text-right">
+                        <a class="btn btn-light btn-sm" href="{{ route('incidencias.show', $incidencia->id) }}">Ver</a>
                         <a class="btn btn-light btn-sm" href="{{ route('incidencias.edit', $incidencia->id) }}">Editar</a>
                         <a class="btn btn-danger btn-sm text-white delete" val-palabra={{$incidencia->id}}>Borrar</a>
                     </td>
