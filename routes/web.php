@@ -22,7 +22,7 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
-    
+
     //Clientes
     Route::get('/clientes', 'ClienteController@index')->name('clientes.index'); //para mostrar todos los clientes
     Route::get('/clientes/create', 'ClienteController@create')->name('clientes.create'); //renderizar la vista de creacion
@@ -31,7 +31,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/clientes/{cliente}/edit', 'ClienteController@edit')->name('clientes.edit'); //renderizar el form para editar un cliente
     Route::put('/clientes/{cliente}', 'ClienteController@update')->name('clientes.update'); //guardar lo que modificamos en el form de edicion
     Route::delete('clientes/{cliente}', 'ClienteController@destroy')->name('clientes.destroy'); //eliminar un cliente
-    
+    Route::get('/clientes/obtenerEquipos/{cliente}', 'ClienteController@obtenerEquipos')->name('clientes.obtenerEquipos'); //renderizar el form para editar un cliente
+
     //Direcciones
     Route::get('/direcciones', 'DireccionController@index')->name('direcciones.index'); //para mostrar todos los direcciones
     Route::get('/direcciones/create', 'DireccionController@create')->name('direcciones.create'); //renderizar la vista de creacion
@@ -40,14 +41,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/direcciones/{direccion}/edit', 'DireccionController@edit')->name('direcciones.edit'); //renderizar el form para editar un direccion
     Route::put('/direcciones/{direccion}', 'DireccionController@update')->name('direcciones.update'); //guardar lo que modificamos en el form de edicion
     Route::delete('direcciones/{direccion}', 'DireccionController@destroy')->name('direcciones.destroy'); //eliminar una direccion
-    
-    
+
+
     //carga de provincias con ajax
     Route::get('paises/{pais}', 'DireccionController@obtenerProvincias')->name('paises.obtenerProvincias');
-    
+
     //carga de localidades con ajax
     Route::get('provincias/{provincia}', 'DireccionController@obtenerLocalidades')->name('provincias.obtenerLocalidades');
-    
+
     //Proveedores
     Route::get('/proveedores', 'ProveedorController@index')->name('proveedores.index'); //para mostrar todos los proveedores
     Route::get('/proveedores/create', 'ProveedorController@create')->name('proveedores.create'); //renderizar la vista de creacion
@@ -56,8 +57,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/proveedores/{proveedor}/edit', 'ProveedorController@edit')->name('proveedores.edit'); //renderizar el form para editar un proveedor
     Route::put('/proveedores/{proveedor}', 'ProveedorController@update')->name('proveedores.update'); //guardar lo que modificamos en el form de edicion
     Route::delete('proveedores/{proveedor}', 'ProveedorController@destroy')->name('proveedores.destroy'); //eliminar una proveedor
-    
-    
+
+
     //Equipos
     Route::get('/equipos', 'EquipoController@index')->name('equipos.index'); //para mostrar todos los equipos
     Route::get('/equipos/create', 'EquipoController@create')->name('equipos.create'); //renderizar la vista de creacion
@@ -66,7 +67,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/equipos/{equipo}/edit', 'EquipoController@edit')->name('equipos.edit'); //renderizar el form para editar un equipo
     Route::put('/equipos/{equipo}', 'EquipoController@update')->name('equipos.update'); //guardar lo que modificamos en el form de edicion
     Route::delete('equipos/{equipo}', 'EquipoController@destroy')->name('equipos.destroy'); //eliminar un equipo
-    
+
     //Equipos
     Route::get('/partes', 'ParteController@index')->name('partes.index'); //para mostrar todos los partes
     Route::get('/partes/create', 'ParteController@create')->name('partes.create'); //renderizar la vista de creacion
@@ -75,7 +76,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/partes/{parte}/edit', 'ParteController@edit')->name('partes.edit'); //renderizar el form para editar un parte
     Route::put('/partes/{parte}', 'ParteController@update')->name('partes.update'); //guardar lo que modificamos en el form de edicion
     Route::delete('partes/{parte}', 'ParteController@destroy')->name('partes.destroy'); //eliminar un parte
-    
+
     //Tecnicos
     Route::get('/tecnicos', 'TecnicoController@index')->name('tecnicos.index'); //para mostrar todos los tecnicos
     Route::get('/tecnicos/create', 'TecnicoController@create')->name('tecnicos.create'); //renderizar la vista de creacion
@@ -84,7 +85,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tecnicos/{tecnico}/edit', 'TecnicoController@edit')->name('tecnicos.edit'); //renderizar el form para editar un tecnico
     Route::put('/tecnicos/{tecnico}', 'TecnicoController@update')->name('tecnicos.update'); //guardar lo que modificamos en el form de edicion
     Route::delete('tecnicos/{tecnico}', 'TecnicoController@destroy')->name('tecnicos.destroy'); //eliminar un tecnico
-    
+
     //Incidencias
     Route::get('/incidencias', 'IncidenciaController@index')->name('incidencias.index'); //para mostrar todos los incidencias
     Route::get('/incidencias/create', 'IncidenciaController@create')->name('incidencias.create'); //renderizar la vista de creacion
@@ -93,7 +94,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/incidencias/{incidencia}/edit', 'IncidenciaController@edit')->name('incidencias.edit'); //renderizar el form para editar un incidencia
     Route::put('/incidencias/{incidencia}', 'IncidenciaController@update')->name('incidencias.update'); //guardar lo que modificamos en el form de edicion
     Route::delete('incidencias/{incidencia}', 'IncidenciaController@destroy')->name('incidencias.destroy'); //eliminar un incidencia
-    
+    Route::get('/incidencias/obtenerMonto/{tipoIncidencia}', 'IncidenciaController@obtenerMonto')->name('incidencia.obtenerMonto'); //renderizar el form para editar un incidencia
+
+
     //Tipos de incidencias
     Route::get('/tipos_incidencias', 'TipoIncidenciaController@index')->name('tipos_incidencias.index'); //para mostrar todos los tipos_incidencias
     Route::get('/tipos_incidencias/create', 'TipoIncidenciaController@create')->name('tipos_incidencias.create'); //renderizar la vista de creacion
@@ -102,7 +105,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tipos_incidencias/{tipoIncidencia}/edit', 'TipoIncidenciaController@edit')->name('tipos_incidencias.edit'); //renderizar el form para editar un tipoIncidencia
     Route::put('/tipos_incidencias/{tipoIncidencia}', 'TipoIncidenciaController@update')->name('tipos_incidencias.update'); //guardar lo que modificamos en el form de edicion
     Route::delete('tipos_incidencias/{tipoIncidencia}', 'TipoIncidenciaController@destroy')->name('tipos_incidencias.destroy'); //eliminar un tipoIncidencia
-    
+
     //Tecnicos
     Route::get('/tecnicos', 'TecnicoController@index')->name('tecnicos.index'); //para mostrar todos los tecnicos
     Route::get('/tecnicos/create', 'TecnicoController@create')->name('tecnicos.create'); //renderizar la vista de creacion
