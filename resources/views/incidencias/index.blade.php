@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-header">Incidencias
-        <a class="btn btn-primary btn-sm float-right text-white" href="{{route('partes.create')}}">Nuevo</a>
+        <a class="btn btn-primary btn-sm float-right text-white" href="{{route('incidencias.create')}}">Nuevo</a>
     </div>
     <div class="card-body">
         <table id="datatable" class="table table-striped table-bordered dataTable">
@@ -25,17 +25,37 @@
                 @foreach ($incidencias as $incidencia)
                 <tr>
                     <td>{{$incidencia->id}}</td>
-                    <td></td>
-                    <td>{{$incidencia->fecha_comienzo_incidencia}}</td>
-                    <td>{{$incidencia->fecha_fin_incidencia}}</td>
-                    <td>{{$incidencia->estado->nombre}}</td>
+                    <td>{{$incidencia->tipoIncidencia->nombre}}</td>
+                    <td>{{ \Carbon\Carbon::create($incidencia->fecha_comienzo_incidencia)->format('d/m/Y')}}
+                    </td>
+                    <td>
+                        @if ($incidencia->fecha_fin_incidencia == null)
+                            <span class="badge badge-pill">sin finalizar</span>
+                        @else
+                           {{$incidencia->fecha_fin_incidencia}}
+                        @endif
+                    </td>
+                    <td>
+                        <span class="badge badge-pill"
+                            style="background-color: {{$incidencia->estado->color}}; color: white;">{{ $incidencia->estado->nombre }}
+                        </span>
+                    </td>
                     <td>{{$incidencia->cliente->nombres}} {{$incidencia->cliente->apellidos}}</td>
                     <td>
                         @foreach ($incidencia->equipos as $equipo)
                             {{$equipo->marca}} - {{$equipo->modelo}}
                         @endforeach
                     </td>
-                    <td>{{$incidencia->tecnico->nombres}} {{$incidencia->tecnico->apellidos}}</td>
+                    <td>
+                        @if($incidencia->tecnico == null)
+                            <span class="badge badge-pill">
+
+                                sin asignar
+                            </span>
+                        @else
+                            {{$incidencia->tecnico->nombres}} {{$incidencia->tecnico->apellidos}}
+                        @endif
+                    </td>
                     <td class="text-right">
                         <a class="btn btn-light btn-sm" href="{{ route('incidencias.edit', $incidencia->id) }}">Editar</a>
                         <a class="btn btn-danger btn-sm text-white delete" val-palabra={{$incidencia->id}}>Borrar</a>
