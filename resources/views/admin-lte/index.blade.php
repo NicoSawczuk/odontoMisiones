@@ -28,6 +28,10 @@
     <link rel="stylesheet"
         href="{{asset('assets/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 
+    <!-- Bootstrap4 Duallistbox -->
+    <link rel="stylesheet" href="{{ asset("assets/admin-lte/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css") }}">
+
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -70,6 +74,9 @@
     <script src="{{asset('assets/js/incluirDatatable.js')}}"></script>
     {{-- Toastr --}}
     <script src="{{asset('assets/extensiones/toastr/toastr.min.js')}}"></script>
+    <!-- Bootstrap4 Duallistbox -->
+    <script src="{{ asset("assets/admin-lte/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js") }}"></script>
+
     {{-- Si el mensaje que enviamos es success --}}
     @if (session('success'))
     <script>
