@@ -28,6 +28,10 @@
     <link href="{{asset('assets/extensiones/toastr/toastr.min.css')}}" rel="stylesheet" />
 
 
+    <!-- Bootstrap4 Duallistbox -->
+    <link rel="stylesheet" href="{{ asset("assets/admin-lte/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css") }}">
+
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -72,6 +76,9 @@
     <script src="{{asset('assets/extensiones/toastr/toastr.min.js')}}"></script>
     {{-- Multiselect (Select2) --}}
     <script src="{{asset('assets/extensiones/select2/js/select2.full.min.js')}}"></script>
+    <!-- Bootstrap4 Duallistbox -->
+    <script src="{{ asset("assets/admin-lte/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js") }}"></script>
+
     {{-- Si el mensaje que enviamos es success --}}
     @if (session('success'))
     <script>

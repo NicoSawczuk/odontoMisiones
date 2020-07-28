@@ -115,5 +115,17 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/tecnicos/{tecnico}', 'TecnicoController@update')->name('tecnicos.update'); //guardar lo que modificamos en el form de edicion
     Route::delete('tecnicos/{tecnico}', 'TecnicoController@destroy')->name('tecnicos.destroy'); //eliminar un tecnico
 
+    //Registro completo
+    Route::get('/usuarios/registro_completo', function () {
+        return view('registro_completo');
+    })->name('usuarios.registro_completo');
+
+    //Usuarios
+    Route::get('/usuarios/administrar/', 'UserController@index')->name('usuarios.administrar');
+
+    Route::get('/usuarios/{usuario}/edit', 'UserController@edit')->name('usuarios.edit');
+
+    Route::patch('/usuarios/{usuario}', 'UserController@update')->name('usuarios.update');
+
 });
 
