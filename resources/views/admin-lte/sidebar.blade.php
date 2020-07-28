@@ -138,16 +138,38 @@
                         </li>
                     </ul>
                 </li>
+                @if (Auth::user()->hasRole('admin'))
+                <li class="nav-item has-treeview {{ (request()->routeIs('usuarios.*')) ? 'menu-open active' : '' }}">
+                    <a href="#" class="nav-link"
+                        style="{{ (request()->routeIs('usuarios.*')) ? 'background-color: #3c8dbc; color: white;' : '' }}">
+                        <i class="nav-item fas fa-tools"></i>
+                        <p>
+                            Panel de administrador
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('usuarios.administrar')}}" class="nav-link"
+                                style="{{ (request()->routeIs('usuarios.administrar')) ? 'color: #3c8dbc;' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Administrar usuarios</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @endif
                 <li class="nav-item">
                     <a href="{{ route('logout') }}"
-                      onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
-                      <i class="fas fa-sign-out-alt nav-item"></i>
-                      <p>Salir</p>
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                        class="nav-link">
+                        <i class="fas fa-sign-out-alt nav-item"></i>
+                        <p>Salir</p>
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                      {{ csrf_field() }}
+                        {{ csrf_field() }}
                     </form>
-                  </li>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
