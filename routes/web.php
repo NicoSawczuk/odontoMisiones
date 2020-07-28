@@ -115,7 +115,14 @@ Route::middleware(['auth'])->group(function () {
     //Registro completo
     Route::get('/usuarios/registro_completo', function () {
         return view('registro_completo');
-    })->name('registro_completo');
+    })->name('usuarios.registro_completo');
+
+    //Usuarios
+    Route::get('/usuarios/administrar/', 'UserController@index')->name('usuarios.administrar');
+
+    Route::get('/usuarios/{usuario}/edit', 'UserController@edit')->name('usuarios.edit');
+
+    Route::patch('/usuarios/{usuario}', 'UserController@update')->name('usuarios.update');
 
 });
 
