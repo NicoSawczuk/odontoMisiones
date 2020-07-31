@@ -4,7 +4,9 @@
 
 <div class="card">
     <div class="card-header">Incidencias
+        @if (Auth::user()->hasRole('atencion') || Auth::user()->hasRole('admin'))
         <a class="btn btn-primary btn-sm float-right text-white" href="{{route('incidencias.create')}}">Nuevo</a>
+        @endif
     </div>
     <div class="card-body">
         <table id="datatable" class="table table-striped table-bordered dataTable">
@@ -58,8 +60,10 @@
                     </td>
                     <td class="text-right">
                         <a class="btn btn-primary btn-sm" href="{{ route('incidencias.show', $incidencia->id) }}">Ver</a>
+                        @if (Auth::user()->hasRole('atencion') || Auth::user()->hasRole('admin'))
                         <a class="btn btn-light btn-sm" href="{{ route('incidencias.edit', $incidencia->id) }}">Editar</a>
                         <a class="btn btn-danger btn-sm text-white delete" val-palabra={{$incidencia->id}}>Borrar</a>
+                        @endif
                     </td>
                 </tr>
                 @endforeach
