@@ -6,6 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Caffeinated\Shinobi\Concerns\HasRolesAndPermissions;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -36,4 +39,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Relaciones
+    public function tecnico(){
+        return $this->hasOne(Tecnico::class);
+    }
 }
