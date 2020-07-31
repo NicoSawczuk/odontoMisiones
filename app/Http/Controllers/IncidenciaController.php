@@ -90,7 +90,14 @@ class IncidenciaController extends Controller
      */
     public function edit(Incidencia $incidencia)
     {
-        //
+        if($incidencia->estado->nivel < 3){
+            $tiposIncidencias = TipoIncidencia::all();
+            $tecnicos= Tecnico::all();
+            $equipos = $incidencia->equipos ;
+            return view('incidencias.edit', compact('incidencia','tiposIncidencias','tecnicos', 'equipos'));
+        }else{
+            return redirect(route('incidencias.index'))->with('error', 'No se puede editar la incidencia debido a que esta en proceso');
+        }
     }
 
     /**
@@ -102,7 +109,24 @@ class IncidenciaController extends Controller
      */
     public function update(Request $request, Incidencia $incidencia)
     {
-        //
+        $data = request()->validate([
+            'tipo_incidencia_id' => 'required',
+            'presupuesto' => 'required',
+            'diagnostico_general' => 'required',
+        ]) ;
+        $incidencia->tipo_incidencia_id = $request->tipo_incidencia_id;
+        $incidencia->presupuesto = $request->presupuesto;
+        $incidencia->diagnostico_general = $request->diagnostico_general;
+        if($request->tecnico_id == null){
+            $incidencia->estado_id = Estado::first()->id ;
+        }else{
+            $incidencia->estado_id = Estado::find(2)->id ;
+            $incidencia->tecnico_id = $request->tecnico_id;
+        }
+        $incidencia->update() ;
+        return redirect(route('incidencias.index'))->with('success', 'La incidencia fue actualizada con éxito!');
+
+
     }
 
     /**
