@@ -137,7 +137,14 @@ class IncidenciaController extends Controller
      */
     public function destroy(Incidencia $incidencia)
     {
-        //
+        if($incidencia->estado->nivel == 1 ){
+            $incidencia->equipos()->detach();
+            $incidencia->delete();
+            return redirect(route('incidencias.index'))->with('success', 'Incidencia '.$incidencia->id.' eliminado con éxito!');
+        }else{
+            return redirect(route('incidencias.index'))->with('error', 'No es posible eliminar la incidencia debido a que esta siendo tratada');
+
+        }
     }
 
     public function obtenerMonto(TipoIncidencia $tipoIncidencia){
