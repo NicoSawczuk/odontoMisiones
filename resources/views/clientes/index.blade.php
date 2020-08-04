@@ -17,6 +17,7 @@
                     <th scope="col">Apellidos</th>
                     <th scope="col">Sexo</th>
                     <th scope="col">Cuil</th>
+                    <th scope="col">Teléfono</th>
                     <th scope="col">Email</th>
                     <th scope="col" class="text-right">Opciones</th>
                 </tr>
@@ -29,6 +30,7 @@
                     <td>{{$cliente->apellidos}}</td>
                     <td>{{$cliente->sexo}}</td>
                     <td>{{$cliente->cuil}}</td>
+                    <td>{{$cliente->telefono}}</td>
                     <td>{{$cliente->email}}</td>
                     <td class="text-right">
                         @if (Auth::user()->hasRole('atencion') || Auth::user()->hasRole('admin'))
