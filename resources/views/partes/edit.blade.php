@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-3">
+                <div class="col-2">
                     <div class="form-group ">
                         <label for="fecha_garantia">Fecha de Garantia</label>
                         <input type="date" class="form-control  @error('fecha_garantia') is-invalid @enderror"
@@ -51,7 +51,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                     <div class="form-group ">
                         <label for="numeros_serie">Numeros de Serie</label>
                         <input type="text" class="form-control  @error('numeros_serie') is-invalid @enderror" id="numeros_serie"
@@ -63,7 +63,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                     <div class="form-group ">
                         <label for="estado" class="">Estado</label>
                         <select name="estado" id="estado" class="form-control" required>
@@ -80,6 +80,16 @@
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group ">
+                        <label for="" class="">Proveedores</label>
+                        <select class="form-control" name="proveedor_id[]" id="proveedor" multiple required>
+                            @foreach($proveedores as $prov)
+                            <option value="{{$prov->id}}" @if($parte->proveedores->contains($prov->id)) selected @endif>{{$prov->empresa}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
             </div>
@@ -145,3 +155,10 @@
     @csrf
 </form>
 @endsection
+@push('scripts')
+<script>
+ $("#proveedor").select2({
+            placeholder: "Seleccione al menos un proveedor"
+        });
+</script>
+@endpush
