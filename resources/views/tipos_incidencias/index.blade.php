@@ -3,40 +3,28 @@
 @section('content')
 
 <div class="card">
-    <div class="card-header">Técnicos
-        @if (Auth::user()->hasRole('admin'))
-        <a class="btn btn-primary btn-sm float-right text-white" href="{{route('tecnicos.create')}}">Nuevo</a>
-        @endif
+    <div class="card-header">Tipo de incidencia
+        <a class="btn btn-primary btn-sm float-right text-white" href="{{route('tipos_incidencias.create')}}">Nuevo</a>
     </div>
     <div class="card-body">
         <table id="datatable" class="table table-striped table-bordered dataTable">
             <thead>
                 <tr>
-                    <th scope="col">Nombre y apellido</th>
-                    <th scope="col">Edad</th>
-                    <th scope="col">Cuil</th>
-                    <th scope="col">Sexo</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Notas</th>
+                    <th scope="col">Nombre de incidencia</th>
+                    <th scope="col">Monto de mano de obra</th>
+                    <th scope="col">Descripcion</th>
                     <th scope="col" class="text-right">Opciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($tecnicos as $tecnico)
+                @foreach ($tipos_incidencias as $tipo_incidencia)
                 <tr>
-                    <td>{{$tecnico->nombres}} {{$tecnico->apellidos}}</td>
-                    <td class="text-right">{{$tecnico->getEdad()}}</td>
-                    <td class="text-right">{{$tecnico->cuil}}</td>
-                    <td>{{$tecnico->sexo}}</td>
-                    <td class="text-right">{{$tecnico->telefono}}</td>
-                    <td>{{$tecnico->email}}</td>
-                    <td>{{$tecnico->notas_particulares}}</td>
+                    <td class="text-right">{{$tipo_incidencia->nombre}}</td>
+                    <td class="text-right">{{$tipo_incidencia->monto_mano_obra}}</td>
+                    <td>{{$tipo_incidencia->descripcion}}</td>
                     <td class="text-right">
-                        @if (Auth::user()->hasRole('admin'))
-                        <a class="btn btn-light btn-sm" href="{{ route('tecnicos.edit', $tecnico->id) }}">Editar</a>
-                        <a class="btn btn-danger btn-sm text-white delete" val-palabra={{$tecnico->id}}>Borrar</a>
-                        @endif
+                        <a class="btn btn-light btn-sm" href="{{ route('tipos_incidencias.edit', $tipo_incidencia->id) }}">Editar</a>
+                        <a class="btn btn-danger btn-sm text-white delete" val-palabra={{$tipo_incidencia->id}}>Borrar</a>
                     </td>
                 </tr>
                 @endforeach
@@ -77,7 +65,7 @@
     $(document).on('click', '.delete', function(){
     id = $(this).attr('val-palabra');
 
-    url2="{{route('tecnicos.destroy',":id")}}";
+    url2="{{route('tipos_incidencias.destroy',":id")}}";
     url2=url2.replace(':id',id);
 
     $('#formDelete').attr('action',url2);

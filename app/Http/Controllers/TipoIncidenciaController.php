@@ -14,7 +14,9 @@ class TipoIncidenciaController extends Controller
      */
     public function index()
     {
-        //
+        $tipos_incidencias = TipoIncidencia::all();
+
+        return view('tipos_incidencias.index', compact('tipos_incidencias'));  
     }
 
     /**
@@ -24,7 +26,7 @@ class TipoIncidenciaController extends Controller
      */
     public function create()
     {
-        //
+        return view('tipos_incidencias.create');
     }
 
     /**
@@ -35,7 +37,19 @@ class TipoIncidenciaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'monto_mano_obra' => 'required',
+        ]);
+
+        $tipos_incidencias = new TipoIncidencia();
+        $tipos_incidencias->nombre = $request->nombre ;
+        $tipos_incidencias->descripcion = $request->descripcion ;
+        $tipos_incidencias->monto_mano_obra = $request->monto_mano_obra ;
+        $tipos_incidencias->save();
+
+        return redirect(route('tipos_incidencias.index'))->with('success','Tipo de incidencias guardada con exito!');
     }
 
     /**
@@ -57,7 +71,7 @@ class TipoIncidenciaController extends Controller
      */
     public function edit(TipoIncidencia $tipoIncidencia)
     {
-        //
+        return view('tipos_incidencias.edit', compact('tipoIncidencia'));
     }
 
     /**
@@ -69,7 +83,19 @@ class TipoIncidenciaController extends Controller
      */
     public function update(Request $request, TipoIncidencia $tipoIncidencia)
     {
-        //
+        $data = request()->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'monto_mano_obra' => 'required',
+        ]);
+
+        $tipos_incidencias = new TipoIncidencia();
+        $tipos_incidencias->nombre = $request->nombre ;
+        $tipos_incidencias->descripcion = $request->descripcion ;
+        $tipos_incidencias->monto_mano_obra = $request->monto_mano_obra ;
+        $tipos_incidencias->save();
+
+        return redirect(route('tipos_incidencias.index'))->with('success','Tipo de incidencias guardada con exito!');
     }
 
     /**
@@ -80,6 +106,15 @@ class TipoIncidenciaController extends Controller
      */
     public function destroy(TipoIncidencia $tipoIncidencia)
     {
-        //
+        try {
+            if($tipoIncidencia->disponibilidad == 0){
+                $tipoIncidencia->delete();
+                return redirect(route('tipos_incidencias.index'))->with('success','Parte eliminada con exito!');
+            }else{
+                return redirect(route('tipos_incidencias.index'))->with('error','No es posible eliminar la parte porque tiene un estado disponible!');
+            }
+        } catch (Throwable $th) {
+            return redirect(route('tipos_incidencias.index'))->with('error','Error al eliminar la parte!');
+        }
     }
 }

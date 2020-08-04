@@ -31,9 +31,10 @@
                         @endforeach
                     </td>
                     <td class="text-right" style="">
+                        @if (Auth::user()->hasRole('admin'))
                         @if ($usuario->id != Auth::id())
-                        <a class="btn btn-light btn-sm"
-                            href="{{ route('usuarios.edit', [$usuario->id]) }}">Editar</a>
+                        <a class="btn btn-light btn-sm" href="{{ route('usuarios.edit', [$usuario->id]) }}">Editar</a>
+                        @endif
                         @endif
                     </td>
 

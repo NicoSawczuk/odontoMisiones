@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Tecnico;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class TecnicoController extends Controller
 {
@@ -46,11 +49,32 @@ class TecnicoController extends Controller
             'cuil' => 'required|unique:clientes',
             'telefono' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'email' => 'required|email|unique:clientes',
+            'password'=> 'required|string|min:8',
         ]);
 
-        $tecnico = new Tecnico($data);
+        $tecnico = new Tecnico();
+        $tecnico->nombres = $request->nombres;
+        $tecnico->apellidos = $request->apellidos;
+        $tecnico->fecha_nacimiento = $request->fecha_nacimiento;
+        $tecnico->sexo = $request->sexo;
+        $tecnico->dni = $request->dni;
+        $tecnico->cuil = $request->cuil;
+        $tecnico->telefono = $request->telefono;
+        $tecnico->email = $request->email;
         $tecnico->notas_particulares = $request->notas_particulares;
         $tecnico->save();
+
+        $user = new User();
+        $user->name = $request->nombres.' '.$request->apellidos;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        $user->syncRoles('tecnico');
+        $user->save();
+
+        $tecnico->update(['user_id'=>$user->id]);
+
         return redirect(route('tecnicos.index'))->with('success', 'Técnico '.$tecnico->nombres.' '.$tecnico->apellidos.' creado con éxito');
     }
 
@@ -106,6 +130,14 @@ class TecnicoController extends Controller
         $tecnico->email = $request->email;
         $tecnico->notas_particulares = $request->notas_particulares;
         $tecnico->update();
+
+        $user = User::where('id', $tecnico->user_id)->first();
+
+        $user->update([
+            'name'  => $request->nombres.' '.$request->apellidos,
+            'email'  => $request->email,
+        ]);
+
         return redirect(route('tecnicos.index'))->with('success', 'Técnico '.$tecnico->nombres.' '.$tecnico->apellidos.' modificado con éxito');
     }
 

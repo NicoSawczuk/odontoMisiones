@@ -15,7 +15,8 @@
                     <div class="form-group ">
                         <label for="nombres">Nombres</label>
                         <input type="text" class="form-control  @error('nombres') is-invalid @enderror" id="nombres"
-                            name="nombres" value="{{ old('nombres') ?? $tecnico->nombres }}" placeholder="Especifique sus nombres" required>
+                            name="nombres" value="{{ old('nombres') ?? $tecnico->nombres }}"
+                            placeholder="Especifique sus nombres" required>
                         @error('nombres')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -27,8 +28,8 @@
                     <div class="form-group ">
                         <label for="apellidos">Apellidos</label>
                         <input type="text" class="form-control  @error('apellidos') is-invalid @enderror" id="apellidos"
-                            name="apellidos" value="{{ old('apellidos') ?? $tecnico->apellidos }}" placeholder="Especifique sus apellidos"
-                            required>
+                            name="apellidos" value="{{ old('apellidos') ?? $tecnico->apellidos }}"
+                            placeholder="Especifique sus apellidos" required>
                         @error('apellidos')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -42,7 +43,8 @@
                     <div class="form-group ">
                         <label for="fecha_nacimiento">Fecha de Nacimiento</label>
                         <input type="date" class="form-control  @error('fecha_nacimiento') is-invalid @enderror"
-                            id="fecha_nacimiento" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') ?? $tecnico->fecha_nacimiento }}"
+                            id="fecha_nacimiento" name="fecha_nacimiento"
+                            value="{{ old('fecha_nacimiento') ?? $tecnico->fecha_nacimiento }}"
                             placeholder="Especifique sus fecha_nacimiento" required>
                         @error('fecha_nacimiento')
                         <span class="invalid-feedback" role="alert">
@@ -56,9 +58,12 @@
                         <label for="sexo" class="">Sexo</label>
                         <select name="sexo" id="sexo" class="form-control" required>
                             <option value="" selected disabled>--Seleccione--</option>
-                            <option value="FEMENINO" @if("FEMENINO"==old('sexo') || "FEMENINO"==$tecnico->sexo) selected @endif>Femenino</option>
-                            <option value="MASCULINO" @if("MASCULINO"==old('sexo') || "MASCULINO"==$tecnico->sexo) selected @endif>Masculino</option>
-                            <option value="NO ACLARA" @if("NO ACLARA"==old('sexo') || "NO ACLARA"==$tecnico->sexo) selected @endif>No aclara</option>
+                            <option value="FEMENINO" @if("FEMENINO"==old('sexo') || "FEMENINO"==$tecnico->sexo) selected
+                                @endif>Femenino</option>
+                            <option value="MASCULINO" @if("MASCULINO"==old('sexo') || "MASCULINO"==$tecnico->sexo)
+                                selected @endif>Masculino</option>
+                            <option value="NO ACLARA" @if("NO ACLARA"==old('sexo') || "NO ACLARA"==$tecnico->sexo)
+                                selected @endif>No aclara</option>
                         </select>
                         @error('sexo')
                         <span class="invalid-feedback" role="alert">
@@ -71,7 +76,8 @@
                     <div class="form-group ">
                         <label for="dni">DNI</label>
                         <input type="number" class="form-control  @error('dni') is-invalid @enderror" id="dni"
-                            name="dni" value="{{ old('dni') ?? $tecnico->dni }}" placeholder="Especifique su dni" required>
+                            name="dni" value="{{ old('dni') ?? $tecnico->dni }}" placeholder="Especifique su dni"
+                            required>
                         @error('dni')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -83,7 +89,8 @@
                     <div class="form-group ">
                         <label for="dni">CUIL</label>
                         <input type="number" class="form-control  @error('cuil') is-invalid @enderror" id="cuil"
-                            name="cuil" value="{{ old('cuil') ?? $tecnico->cuil }}" placeholder="Especifique su cuil" required>
+                            name="cuil" value="{{ old('cuil') ?? $tecnico->cuil }}" placeholder="Especifique su cuil"
+                            required>
                         @error('cuil')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -97,8 +104,8 @@
                     <div class="form-group ">
                         <label for="telefono">Telefono</label>
                         <input type="text" class="form-control  @error('telefono') is-invalid @enderror" id="telefono"
-                            name="telefono" value="{{ old('telefono') ?? $tecnico->telefono }}" placeholder="Especifique su telefono"
-                            required>
+                            name="telefono" value="{{ old('telefono') ?? $tecnico->telefono }}"
+                            placeholder="Especifique su telefono" required>
                         @error('telefono')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -110,7 +117,8 @@
                     <div class="form-group ">
                         <label for="email">Email</label>
                         <input type="email" class="form-control  @error('email') is-invalid @enderror" id="email"
-                            name="email" value="{{ old('email') ?? $tecnico->email }}" placeholder="Especifique su email" required>
+                            name="email" value="{{ old('email') ?? $tecnico->email }}"
+                            placeholder="Especifique su email" required>
                         @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -118,13 +126,24 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-6">
-                    <div class="form-group ">
-                        <label for="nombre">Notas Particulares</label>
-                        <textarea name="notas_particulares" id="notas_particulares" cols="30" rows="3"
-                            class="form-control"
-                            placeholder="Ingrese las notas particulares">{{ old('notas_particulares') ?? $tecnico->notas_particulares }}</textarea>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" class="form-control  @error('password') is-invalid @enderror" id="password"
+                            name="password" value="" placeholder="**********" disabled>
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group ">
+                    <label for="nombre">Notas Particulares</label>
+                    <textarea name="notas_particulares" id="notas_particulares" cols="30" rows="3" class="form-control"
+                        placeholder="Ingrese las notas particulares">{{ old('notas_particulares') ?? $tecnico->notas_particulares }}</textarea>
                 </div>
             </div>
         </div>

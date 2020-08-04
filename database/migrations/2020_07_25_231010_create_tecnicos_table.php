@@ -26,6 +26,9 @@ class CreateTecnicosTable extends Migration
             $table->string('email');
             $table->text('notas_particulares')->nullable();
 
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
+
 
             $table->softDeletes();
             $table->timestamps();
