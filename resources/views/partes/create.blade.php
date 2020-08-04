@@ -154,7 +154,7 @@
 @push('scripts')
 <script>
  $("#proveedor").select2({
-            placeholder: "Seleccione al menos un equipo"
+            placeholder: "Seleccione al menos un proveedor"
         });
 </script>
 @endpush
