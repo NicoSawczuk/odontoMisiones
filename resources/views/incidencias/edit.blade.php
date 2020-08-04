@@ -37,7 +37,7 @@
                         </label>
                         <select class="form-control" name="equipos_id[]" id="equipo" multiple required disabled>
                             @foreach ($equipos as $equipo)
-                                <option value="{{$equipo->id}}">{{$equipo->marca}} ({{$equipo->modelo}})</option>
+                                <option value="{{$equipo->id}}" @if($incidencia->equipos->contains($equipo->id)) selected @endif>{{$equipo->marca}} ({{$equipo->modelo}})</option>
                             @endforeach
                         </select>
                     </div>
@@ -126,6 +126,9 @@
     document.getElementById("fecha_nacimiento").max = new Date().toISOString().split("T")[0];
 </script>
 <script>
+     $("#equipo").select2({
+            placeholder: "Seleccione al menos un equipo"
+    });
     $(document).ready(function(){
         $('.seleccion').select2({
             sorter: data => data.sort((a, b) => a.text.localeCompare(b.text)),
