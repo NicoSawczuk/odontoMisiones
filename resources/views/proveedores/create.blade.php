@@ -10,7 +10,19 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-4">
+                <div class="col-3">
+                    <div class="form-group ">
+                        <label for="cuit">Cuit</label>
+                        <input type="text" class="form-control  @error('cuit') is-invalid @enderror" id="cuit"
+                            name="cuit" value="{{ old('cuit') }}" placeholder="Especifique el nombre de su cuit" required>
+                        @error('cuit')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-3">
                     <div class="form-group ">
                         <label for="empresa">Empresa</label>
                         <input type="text" class="form-control  @error('empresa') is-invalid @enderror" id="empresa"
@@ -22,7 +34,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <div class="form-group ">
                         <label for="nombre_persona_contacto">Nombre persona contacto</label>
                         <input type="text" class="form-control  @error('nombre_persona_contacto') is-invalid @enderror" id="nombre_persona_contacto"
@@ -34,7 +46,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <div class="form-group ">
                         <label for="apellido_persona_contacto">Apellido persona contacto</label>
                         <input type="text" class="form-control  @error('apellido_persona_contacto') is-invalid @enderror" id="apellido_persona_contacto"
