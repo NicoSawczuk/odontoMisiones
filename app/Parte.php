@@ -14,4 +14,9 @@ class Parte extends Model
     {
         return $this->belongsToMany(Incidencia::class);
     }
+
+    public function proveedores()
+    {
+        return $this->belongsToMany(Proveedor::class);
+    }
 }

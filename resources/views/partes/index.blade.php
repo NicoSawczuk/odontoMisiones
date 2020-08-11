@@ -4,7 +4,9 @@
 
 <div class="card">
     <div class="card-header">Partes
+        @if (Auth::user()->hasRole('admin'))
         <a class="btn btn-primary btn-sm float-right text-white" href="{{route('partes.create')}}">Nuevo</a>
+        @endif
     </div>
     <div class="card-body">
         <table id="datatable" class="table table-striped table-bordered dataTable">
@@ -15,6 +17,8 @@
                     <th scope="col">Modelo</th>
                     <th scope="col">Numero de Serie</th>
                     <th scope="col">Estado</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Proveedores</th>
                     <th scope="col">Disponible</th>
                     <th scope="col" class="text-right">Opciones</th>
                 </tr>
@@ -27,6 +31,14 @@
                     <td>{{$parte->modelo}}</td>
                     <td>{{$parte->numeros_serie}}</td>
                     <td>{{$parte->estado}}</td>
+                    <td>{{$parte->precio_sugerido}}</td>
+                    <td>
+                        @foreach ($parte->proveedores as $p)
+                            <span class="badge badge-pill">
+                                {{$p->empresa}}
+                            </span>
+                        @endforeach
+                    </td>
                     <td>
                         @if($parte->disponibilidad == 1)
                             SI
@@ -35,8 +47,10 @@
                         @endif
                     </td>
                     <td class="text-right">
+                        @if (Auth::user()->hasRole('admin'))
                         <a class="btn btn-light btn-sm" href="{{ route('partes.edit', $parte->id) }}">Editar</a>
                         <a class="btn btn-danger btn-sm text-white delete" val-palabra={{$parte->id}}>Borrar</a>
+                        @endif
                     </td>
                 </tr>
                 @endforeach

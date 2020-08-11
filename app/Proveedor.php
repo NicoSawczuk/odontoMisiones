@@ -12,4 +12,9 @@ class Proveedor extends Model
     public $table = "proveedores"; //la tabla se llamara de esta manera
 
 
+    public function partes()
+    {
+        return $this->belongsToMany(Parte::class);
+    }
+
 }

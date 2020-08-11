@@ -26,8 +26,7 @@
                     <div class="form-group ">
                         <label for="modelo">Modelo</label>
                         <input type="text" class="form-control  @error('modelo') is-invalid @enderror" id="modelo"
-                            name="modelo" value="{{ old('modelo') }}" placeholder="Especifique sus modelo"
-                            required>
+                            name="modelo" value="{{ old('modelo') }}" placeholder="Especifique sus modelo" required>
                         @error('modelo')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -37,7 +36,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-3">
+                <div class="col-2">
                     <div class="form-group ">
                         <label for="fecha_garantia">Fecha de Garantia</label>
                         <input type="date" class="form-control  @error('fecha_garantia') is-invalid @enderror"
@@ -50,11 +49,12 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                     <div class="form-group ">
                         <label for="numeros_serie">Numeros de Serie</label>
-                        <input type="text" class="form-control  @error('numeros_serie') is-invalid @enderror" id="numeros_serie"
-                            name="numeros_serie" value="{{ old('numeros_serie') }}" placeholder="Especifique los numeros de serie" required>
+                        <input type="text" class="form-control  @error('numeros_serie') is-invalid @enderror"
+                            id="numeros_serie" name="numeros_serie" value="{{ old('numeros_serie') }}"
+                            placeholder="Especifique los numeros de serie" required>
                         @error('numeros_serie')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -62,17 +62,15 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                     <div class="form-group ">
                         <label for="estado" class="">Estado</label>
                         <select name="estado" id="estado" class="form-control" required>
                             <option value="" selected disabled>--Seleccione--</option>
-                            <option value="NUEVO" @if("NUEVO" == old('estado')) selected
-                                @endif>NUEVO</option>
-                            <option value="USADO"  @if("USADO" == old('estado')) selected
-                            @endif>USADO</option>
-                            <option value="REFACCIONADO"  @if("REFACCIONADO" == old('estado')) selected
-                            @endif>REFACCIONADO</option>
+                            <option value="NUEVO" @if("NUEVO"==old('estado')) selected @endif>NUEVO</option>
+                            <option value="USADO" @if("USADO"==old('estado')) selected @endif>USADO</option>
+                            <option value="REFACCIONADO" @if("REFACCIONADO"==old('estado')) selected @endif>REFACCIONADO
+                            </option>
                         </select>
                         @error('estado')
                         <span class="invalid-feedback" role="alert">
@@ -81,14 +79,24 @@
                         @enderror
                     </div>
                 </div>
+                <div class="col-4">
+                    <div class="form-group ">
+                        <label for="" class="">Proveedores</label>
+                        <select class="form-control" name="proveedor_id[]" id="proveedor" multiple required>
+                            @foreach($proveedores as $prov)
+                            <option value="{{$prov->id}}">{{$prov->empresa}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="col-3">
                     <div class="form-group ">
                         <label for="precio_sugerido">Precio Sugerido</label>
-                        <input type="number" class="form-control  @error('precio_sugerido') is-invalid @enderror" id="precio_sugerido"
-                            name="precio_sugerido" value="{{ old('precio_sugerido') }}" placeholder="Especifique el precio sugerido"
-                            required>
+                        <input type="number" class="form-control  @error('precio_sugerido') is-invalid @enderror"
+                            id="precio_sugerido" name="precio_sugerido" value="{{ old('precio_sugerido') }}"
+                            placeholder="Especifique el precio sugerido" required>
                         @error('precio_sugerido')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -101,10 +109,8 @@
                         <label for="disponibilidad" class="">Disponible</label>
                         <select name="disponibilidad" id="disponibilidad" class="form-control" required>
                             <option value="" selected disabled>--Seleccione--</option>
-                            <option value="1" @if("1" == old('disponibilidad')) selected
-                                @endif>SI</option>
-                            <option value="0"  @if("0" == old('disponibilidad')) selected
-                            @endif>NO</option>
+                            <option value="1" @if("1"==old('disponibilidad')) selected @endif>SI</option>
+                            <option value="0" @if("0"==old('disponibilidad')) selected @endif>NO</option>
                         </select>
                         @error('disponibilidad')
                         <span class="invalid-feedback" role="alert">
@@ -116,9 +122,9 @@
                 <div class="col-6">
                     <div class="form-group ">
                         <label for="comprobante_asociado">Comprobante Asociado</label>
-                        <input type="text" class="form-control  @error('comprobante_asociado') is-invalid @enderror" id="comprobante_asociado"
-                            name="comprobante_asociado" value="{{ old('comprobante_asociado') }}" placeholder="Especifique su comprobante"
-                            required>
+                        <input type="text" class="form-control  @error('comprobante_asociado') is-invalid @enderror"
+                            id="comprobante_asociado" name="comprobante_asociado"
+                            value="{{ old('comprobante_asociado') }}" placeholder="Especifique su comprobante" required>
                         @error('comprobante_asociado')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -126,6 +132,7 @@
                         @enderror
                     </div>
                 </div>
+
 
             </div>
             <div class="form-group ">
@@ -144,3 +151,10 @@
     @csrf
 </form>
 @endsection
+@push('scripts')
+<script>
+ $("#proveedor").select2({
+            placeholder: "Seleccione al menos un proveedor"
+        });
+</script>
+@endpush

@@ -22,7 +22,7 @@ class CreateProveedoresTable extends Migration
             $table->string('email');
             $table->string('nombre_persona_contacto');
             $table->string('apellido_persona_contacto');
-            $table->text('notas_generales');
+            $table->text('notas_generales')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

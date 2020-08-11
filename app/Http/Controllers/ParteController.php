@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Parte;
+use App\Proveedor;
 use Illuminate\Http\Request;
 
 class ParteController extends Controller
@@ -25,7 +26,8 @@ class ParteController extends Controller
      */
     public function create()
     {
-        return view('partes.create');
+        $proveedores = Proveedor::all() ;
+        return view('partes.create', compact('proveedores'));
     }
 
     /**
@@ -45,6 +47,7 @@ class ParteController extends Controller
             'precio_sugerido' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
             'disponibilidad' => 'required',
             'comprobante_asociado' => 'required',
+            'proveedor_id.*' => 'required'
         ]);
 
         $parte = new Parte();
@@ -58,6 +61,7 @@ class ParteController extends Controller
         $parte->comprobante_asociado = $request->comprobante_asociado ;
         $parte->notas_generales = $request->notas_generales ;
         $parte->save();
+        $parte->proveedores()->sync($request->proveedor_id);
 
         return redirect(route('partes.index'))->with('success','Parte guardada con exito!');
 
@@ -71,7 +75,7 @@ class ParteController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**
@@ -82,7 +86,8 @@ class ParteController extends Controller
      */
     public function edit(Parte $parte)
     {
-        return view('partes.edit', compact('parte'));
+        $proveedores = Proveedor::all();
+        return view('partes.edit', compact('parte','proveedores'));
     }
 
     /**
@@ -103,6 +108,7 @@ class ParteController extends Controller
             'precio_sugerido' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
             'disponibilidad' => 'required',
             'comprobante_asociado' => 'required',
+            'proveedor_id.*' => 'required'
         ]);
         $parte->marca = $request->marca ;
         $parte->modelo = $request->modelo ;
@@ -114,6 +120,7 @@ class ParteController extends Controller
         $parte->comprobante_asociado = $request->comprobante_asociado ;
         $parte->notas_generales = $request->notas_generales ;
         $parte->update();
+        $parte->proveedores()->sync($request->proveedor_id);
         return redirect(route('partes.index'))->with('success','Parte actualizada con exito!');
 
     }

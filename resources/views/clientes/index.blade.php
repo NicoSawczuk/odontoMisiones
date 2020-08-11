@@ -4,7 +4,9 @@
 
 <div class="card">
     <div class="card-header">Clientes
+        @if (Auth::user()->hasRole('atencion') || Auth::user()->hasRole('admin'))
         <a class="btn btn-primary btn-sm float-right text-white" href="{{route('clientes.create')}}">Nuevo</a>
+        @endif
     </div>
     <div class="card-body">
         <table id="datatable" class="table table-striped table-bordered dataTable">
@@ -15,6 +17,7 @@
                     <th scope="col">Apellidos</th>
                     <th scope="col">Sexo</th>
                     <th scope="col">Cuil</th>
+                    <th scope="col">Teléfono</th>
                     <th scope="col">Email</th>
                     <th scope="col" class="text-right">Opciones</th>
                 </tr>
@@ -27,10 +30,13 @@
                     <td>{{$cliente->apellidos}}</td>
                     <td>{{$cliente->sexo}}</td>
                     <td>{{$cliente->cuil}}</td>
+                    <td>{{$cliente->telefono}}</td>
                     <td>{{$cliente->email}}</td>
                     <td class="text-right">
+                        @if (Auth::user()->hasRole('atencion') || Auth::user()->hasRole('admin'))
                         <a class="btn btn-light btn-sm" href="{{ route('clientes.edit', $cliente->id) }}">Editar</a>
                         <a class="btn btn-danger btn-sm text-white delete" val-palabra={{$cliente->id}}>Borrar</a>
+                        @endif
                     </td>
                 </tr>
                 @endforeach

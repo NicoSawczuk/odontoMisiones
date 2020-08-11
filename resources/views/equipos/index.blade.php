@@ -4,7 +4,9 @@
 
 <div class="card">
     <div class="card-header">Equipos
+        @if (Auth::user()->hasRole('atencion') || Auth::user()->hasRole('admin'))
         <a class="btn btn-primary btn-sm float-right text-white" href="{{route('equipos.create')}}">Nuevo</a>
+        @endif
     </div>
     <div class="card-body">
         <table id="datatable" class="table table-striped table-bordered dataTable">
@@ -29,8 +31,10 @@
                     <td>{{$equipo->estado}}</td>
                     <td>{{$equipo->notas_generales}}</td>
                     <td class="text-right">
+                        @if (Auth::user()->hasRole('atencion') || Auth::user()->hasRole('admin'))
                         <a class="btn btn-light btn-sm" href="{{ route('equipos.edit', $equipo->id) }}">Editar</a>
                         <a class="btn btn-danger btn-sm text-white delete" val-palabra={{$equipo->id}}>Borrar</a>
+                        @endif
                     </td>
                 </tr>
                 @endforeach

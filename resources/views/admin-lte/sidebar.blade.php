@@ -26,7 +26,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-
+                @if (Auth::user()->hasRole('atencion') || Auth::user()->hasRole('admin')|| Auth::user()->hasRole('tecnico'))
                 <li class="nav-item has-treeview {{ (request()->routeIs('incidencias.*')) ? 'menu-open active' : '' }}">
                     <a href="#" class="nav-link"
                         style="{{ (request()->routeIs('incidencias.*')) ? 'background-color: #3c8dbc; color: white;' : '' }}">
@@ -44,6 +44,7 @@
                                 <p>Ver incidencias</p>
                             </a>
                         </li>
+                        @if (Auth::user()->hasRole('atencion') || Auth::user()->hasRole('admin'))
                         <li class="nav-item">
                             <a href="{{route('tipos_incidencias.index')}}" class="nav-link"
                                 style="{{ (request()->routeIs('tipo_incidencias.index')) ? 'color: #3c8dbc;' : '' }}">
@@ -51,9 +52,12 @@
                                 <p>Ver tipos de incidencias</p>
                             </a>
                         </li>
+                        @endif
                     </ul>
                 </li>
+                @endif
 
+                @if (Auth::user()->hasRole('atencion') || Auth::user()->hasRole('admin')|| Auth::user()->hasRole('tecnico'))
                 <li class="nav-item has-treeview {{ (request()->routeIs('clientes.*')) ? 'menu-open active' : '' }}">
                     <a href="#" class="nav-link"
                         style="{{ (request()->routeIs('clientes.*')) ? 'background-color: #3c8dbc; color: white;' : '' }}">
@@ -73,6 +77,8 @@
                         </li>
                     </ul>
                 </li>
+                @endif
+                @if (Auth::user()->hasRole('atencion') || Auth::user()->hasRole('admin'))
                 <li class="nav-item has-treeview {{ (request()->routeIs('equipos.*')) ? 'menu-open active' : '' }}">
                     <a href="#" class="nav-link"
                         style="{{ (request()->routeIs('equipos.*')) ? 'background-color: #3c8dbc; color: white;' : '' }}">
@@ -92,6 +98,8 @@
                         </li>
                     </ul>
                 </li>
+                @endif
+                @if (Auth::user()->hasRole('admin'))
                 <li class="nav-item has-treeview {{ (request()->routeIs('tecnicos.*')) ? 'menu-open active' : '' }}">
                     <a href="#" class="nav-link"
                         style="{{ (request()->routeIs('tecnicos.*')) ? 'background-color: #3c8dbc; color: white;' : '' }}">
@@ -111,6 +119,8 @@
                         </li>
                     </ul>
                 </li>
+                @endif
+                @if (Auth::user()->hasRole('atencion') || Auth::user()->hasRole('admin')|| Auth::user()->hasRole('tecnico'))
                 <li
                     class="nav-item has-treeview {{ (request()->routeIs('partes.*') ||request()->routeIs('proveedores.*')) ? 'menu-open active' : '' }}">
                     <a href="#" class="nav-link"
@@ -122,6 +132,7 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+                        
                         <li class="nav-item">
                             <a href="{{route('proveedores.index')}}" class="nav-link"
                                 style="{{ (request()->routeIs('proveedores.index')) ? 'color: #3c8dbc;' : '' }}">
@@ -138,6 +149,7 @@
                         </li>
                     </ul>
                 </li>
+                @endif
                 @if (Auth::user()->hasRole('admin'))
                 <li class="nav-item has-treeview {{ (request()->routeIs('usuarios.*')) ? 'menu-open active' : '' }}">
                     <a href="#" class="nav-link"
