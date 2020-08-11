@@ -40,6 +40,7 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         $data = request()->validate([
+            'cuit' => 'required',
             'empresa' => 'required',
             'direccion_postal' => 'required',
             'telefono' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
@@ -49,6 +50,7 @@ class ProveedorController extends Controller
         ]) ;
 
         $proveedor = new Proveedor();
+        $proveedor->cuit = $request->cuit ;
         $proveedor->empresa = $request->empresa ;
         $proveedor->direccion_postal = $request->direccion_postal ;
         $proveedor->telefono = $request->telefono ;
@@ -95,6 +97,7 @@ class ProveedorController extends Controller
     public function update(Request $request, Proveedor $proveedor)
     {
         $data = request()->validate([
+            'cuit' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'empresa' => 'required',
             'direccion_postal' => 'required',
             'telefono' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
@@ -102,7 +105,8 @@ class ProveedorController extends Controller
             'nombre_persona_contacto' => 'required',
             'apellido_persona_contacto' => 'required',
         ]) ;
-
+        
+        $proveedor->cuit = $request->cuit ;
         $proveedor->empresa = $request->empresa ;
         $proveedor->direccion_postal = $request->direccion_postal ;
         $proveedor->telefono = $request->telefono ;
