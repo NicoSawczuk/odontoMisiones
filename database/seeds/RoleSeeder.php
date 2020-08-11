@@ -34,11 +34,6 @@ class RoleSeeder extends Seeder
             'description'   => 'El rol corresponde a un usuario encargado de la atención al publico'
         ]);
 
-        Role::create([
-            'name'          => 'Alta de entidades',
-            'slug'          => 'alta',
-            'description'   => 'El rol corresponde a un usuario encargado del alta de entidades'
-        ]);
 
         //Admin
         $admin = User::create([
