@@ -10,6 +10,7 @@
         <table id="datatable" class="table table-striped table-bordered dataTable">
             <thead>
                 <tr>
+                    <th scope="col">Cuit</th>
                     <th scope="col">Empresa</th>
                     <th scope="col">Direccion postal</th>
                     <th scope="col">telefono</th>
@@ -23,6 +24,7 @@
             <tbody>
                 @foreach ($proveedores as $proveedor)
                 <tr>
+                    <td>{{$proveedor->cuit}}</td>
                     <td>{{$proveedor->empresa}}</td>
                     <td>{{$proveedor->direccion_postal}}</td>
                     <td>{{$proveedor->telefono}}</td>
