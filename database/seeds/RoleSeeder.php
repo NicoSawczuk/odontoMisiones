@@ -49,6 +49,24 @@ class RoleSeeder extends Seeder
         $admin->syncRoles('admin');
         $admin->save();
 
+        //Tecnico
+        $tecnico = User::create([
+            'name' => 'Tecnico',
+            'email' => 'tecnico@tecnico.com',
+            'password' => Hash::make('1597532486'),
+        ]);
+        $tecnico->syncRoles('tecnico');
+        $tecnico->save();
+
+        //Atencion al publico
+        $atencion = User::create([
+            'name' => 'Atencion al publico',
+            'email' => 'atencion@atencion.com',
+            'password' => Hash::make('1597532486'),
+        ]);
+        $atencion->syncRoles('atencion');
+        $atencion->save();
+
 
     }
 }
