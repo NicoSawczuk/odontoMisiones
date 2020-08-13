@@ -173,7 +173,7 @@
                 @endif
 
                 @if (Auth::user()->hasRole('admin'))
-                <li class="nav-item has-treeview {{ (request()->routeIs('usuarios.*')) ? 'menu-open active' : '' }}">
+                <li class="nav-item has-treeview {{ (request()->routeIs('paises.*')) || (request()->routeIs('provincias.*')) || (request()->routeIs('localidades.*')) ? 'menu-open active' : '' }}">
                     <a href="#" class="nav-link"
                         style="{{ (request()->routeIs('paises.*')) || (request()->routeIs('provincias.*')) || (request()->routeIs('localidades.*')) ? 'background-color: #3c8dbc; color: white;' : '' }}">
                         <i class="nav-item fas fa-flag"></i>
