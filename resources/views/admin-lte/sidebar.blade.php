@@ -178,7 +178,7 @@
                         style="{{ (request()->routeIs('paises.*')) || (request()->routeIs('provincias.*')) || (request()->routeIs('localidades.*')) ? 'background-color: #3c8dbc; color: white;' : '' }}">
                         <i class="nav-item fas fa-flag"></i>
                         <p>
-                            Pais, Provincia y Localidades
+                            Pais, Provincia y Localidad
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
