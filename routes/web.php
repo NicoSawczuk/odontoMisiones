@@ -133,6 +133,6 @@ Route::middleware(['auth'])->group(function () {
     //Provincia
     Route::get('/provincias', 'HomeController@indexProvincia')->name('provincias.index'); //para mostrar todos las provincias
     //Localidad
-    Route::get('/localidades', 'HomeController@indexLocalidad')->name('localidades.index'); //para mostrar todos las localidades
+    Route::get('/localidades', 'HomeController@indexLocalidades')->name('localidades.index'); //para mostrar todos las localidades
 });
 
