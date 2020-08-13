@@ -171,6 +171,42 @@
                     </ul>
                 </li>
                 @endif
+
+                @if (Auth::user()->hasRole('admin'))
+                <li class="nav-item has-treeview {{ (request()->routeIs('usuarios.*')) ? 'menu-open active' : '' }}">
+                    <a href="#" class="nav-link"
+                        style="{{ (request()->routeIs('paises.*')) || (request()->routeIs('provincias.*')) || (request()->routeIs('localidades.*')) ? 'background-color: #3c8dbc; color: white;' : '' }}">
+                        <i class="nav-item fas fa-flag"></i>
+                        <p>
+                            Pais, Provincia y Localidades
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('paises.index')}}" class="nav-link"
+                                style="{{ (request()->routeIs('paises.index')) ? 'color: #3c8dbc;' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Administrar Paises</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('provincias.index')}}" class="nav-link"
+                                style="{{ (request()->routeIs('provincias.index')) ? 'color: #3c8dbc;' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Administrar Provincias</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('localidades.index')}}" class="nav-link"
+                                style="{{ (request()->routeIs('localidades.index')) ? 'color: #3c8dbc;' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Administrar Localidades</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @endif
                 <li class="nav-item">
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"

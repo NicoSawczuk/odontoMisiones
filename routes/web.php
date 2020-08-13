@@ -127,5 +127,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::patch('/usuarios/{usuario}', 'UserController@update')->name('usuarios.update');
 
+
+    //Pais
+    Route::get('/paises', 'HomeController@indexPais')->name('paises.index'); //para mostrar todos los paises
+    //Provincia
+    Route::get('/provincias', 'HomeController@indexProvincia')->name('provincias.index'); //para mostrar todos las provincias
+    //Localidad
+    Route::get('/localidades', 'HomeController@indexLocalidad')->name('localidades.index'); //para mostrar todos las localidades
 });
 
